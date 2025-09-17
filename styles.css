@@ -779,3 +779,10 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
   footer.footer-split .badge-svg{ max-width:160px !important; width:50vw !important; height:auto !important; }
 }
 /* === End PATCH 2025-09-17B === */
+
+
+/* [PATCH 2025-09-17C] Ensure cart page sticky bottom works with .footer-split */
+.cart-body > .footer-split{ 
+  flex: 0 0 auto; 
+  margin-top: auto !important; 
+}
