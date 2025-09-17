@@ -724,51 +724,58 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 }
 
 
-/* === [PATCH 2025-09-16] Mobile/desktop polish + request-specific tweaks === */
-/* 1) Remove the "mushroom/cactus" art in LOVE IS IN THE DETAILS across all viewports */
-.love-details .ld-cactus{ display:none !important; }
-
-/* 2) Make NEW & NOTEWORTHY "Add to Cart" and "View All" match the INQUIRE (.btn-pill) look,
-      with accessible focus states and better mobile tap targets */
-.shop-preview .add-to-cart,
-.shop-preview .cta-center .btn-soft{
-  background:transparent;
-  border:2px solid #7A552E;
-  color:#7A552E;
-  border-radius:999px;
-  padding:.9rem 1.4rem;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  font-weight:700;
-  font-size:.9rem;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:44px; /* touch target */
-  transition:transform .08s ease, background-color .2s ease, color .2s ease;
-}
-.shop-preview .add-to-cart:hover,
-.shop-preview .cta-center .btn-soft:hover{
-  background:#7A552E;
-  color:#fff;
-}
-.shop-preview .add-to-cart:focus-visible,
-.shop-preview .cta-center .btn-soft:focus-visible{
-  outline:2px solid #7A552E;
-  outline-offset:2px;
-}
-@media (hover:none){
-  .shop-preview .add-to-cart:active,
-  .shop-preview .cta-center .btn-soft:active{
-    transform:translateY(1px) scale(.98);
+/* === [PATCH 2025-09-17] Phone-only footer: stack sections like reference === */
+@media (max-width: 680px){
+  /* Switch footer grid to a single vertical column on phones */
+  .footer-split .footer-grid{
+    display:flex;               /* override grid */
+    flex-direction:column;
+    gap:28px;
+    align-items:center;
+    text-align:center;
+    padding-top:36px;
+    padding-bottom:36px;
   }
+
+  /* Reorder to: SHOP, INFO, CONNECT (logo at top like ref) */
+  .footer-split .footer-grid .f-badge{ order:0; margin:0 auto 8px; }
+  .footer-split .footer-grid .f-col:nth-of-type(3){ order:1; } /* SHOP */
+  .footer-split .footer-grid .f-col:nth-of-type(2){ order:2; } /* INFO */
+  .footer-split .footer-grid .f-col:nth-of-type(1){ order:3; } /* CONNECT */
+
+  /* Tidy spacing for touch ergonomics */
+  .footer-split .f-head{ margin:0 0 10px; }
+  .footer-split .f-list li{ margin:12px 0; }
+
+  /* Ensure the decorative badge scales nicely on small screens */
+  .footer-split .badge-svg{ max-width:160px; width:50vw; height:auto; }
 }
+/* === End phone-only footer patch === */
 
-/* 3) Small safety: ensure product card buttons don't wrap awkwardly on narrow phones */
-.shop-preview .card-meta .price{ margin-bottom:8px; }
-.shop-preview .card-meta .add-to-cart{ white-space:nowrap; }
 
-/* 4) Minor footer robustness on tiny screens (already good, just ensuring no overflow) */
-.site-footer .container{ overflow-wrap:anywhere; }
+/* === [PATCH 2025-09-17B] Stronger phone-only footer stack + order (no desktop changes) === */
+@media (max-width: 680px){
+  footer.footer-split .container.footer-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    gap:28px !important;
+    padding-top:36px !important;
+    padding-bottom:36px !important;
+  }
 
-/* === End patch === */
+  /* Order: badge first, then SHOP, INFO, CONNECT */
+  footer.footer-split .container.footer-grid > .f-badge{ order:0 !important; margin:0 auto 8px !important; }
+  footer.footer-split .container.footer-grid > .f-col:nth-child(3){ order:1 !important; } /* SHOP (3rd child in markup) */
+  footer.footer-split .container.footer-grid > .f-col:nth-child(2){ order:2 !important; } /* INFO */
+  footer.footer-split .container.footer-grid > .f-col:nth-child(1){ order:3 !important; } /* CONNECT */
+
+  /* Comfortable tap spacing */
+  footer.footer-split .f-head{ margin:0 0 10px !important; }
+  footer.footer-split .f-list li{ margin:12px 0 !important; }
+
+  /* Badge scales nicely on phones */
+  footer.footer-split .badge-svg{ max-width:160px !important; width:50vw !important; height:auto !important; }
+}
+/* === End PATCH 2025-09-17B === */
