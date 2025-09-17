@@ -20,68 +20,323 @@
   <title>AQEELAH BOOKS</title>
   <meta name="description" content="Artisanal books, stationery, and gifts." />
   <link rel="stylesheet" href="styles.css" />
+
+    <!-- Typography: Display (Bodoni Moda) + Sans (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
 <body>
   <div class="announce">FREE SHIPPING ON ORDERS OVER $100 — HANDMADE WITH LOVE</div>
   <header class="site-header">
-    <div class="container nav">
-      <button class="menu" aria-label="menu">☰</button>
-      <div class="brand-wrap">
-        <a class="logo" href="index.html"><img src="assets/img/logo.png" alt="AQEELAH BOOKS logo" class="logo-img"><span class="sr">AQEELAH BOOKS</span></a>
-        <h1 class="site-title">AQEELAH BOOKS</h1>
-      </div>
-      <a class="cart" href="cart.html">CART (0)</a>
+  <!-- TOP BAR -->
+  <div class="container nav nav-top">
+    <a class="top-link" href="#search">SEARCH</a>
+
+    <!-- keep your existing logo + title -->
+    <div class="brand-wrap">
+      <a class="logo" href="index.html"><img src="assets/img/L1.png" class="logo-img"><span class="sr">AQEELAH BOOKS</span></a>
+      <h1 class="site-title">AQEELAH BOOKS</h1>
     </div>
-    <nav class="subnav container">
-      <a href="#about">ABOUT</a>
-      <a href="#shop">SHOP</a>
-      <a href="#story">OUR STORY</a>
-      <a href="#contact">CONTACT</a>
+
+    <nav class="top-right">
+      <a class="top-link" href="#login">LOGIN</a>
+      <a class="top-link cart" href="cart.html">CART (0)</a>
     </nav>
-  </header>
-  <main>
-    <section class="hero container" id="home">
-      <div class="hero-left"><img src="assets/img/p4.jpg" alt="Hero image" /></div>
-      <div class="hero-right">
-        <h2><span>INTRODUCING</span> OUR FIRST RELEASE — <span>PRE‑ORDER NOW</span></h2>
-        <p>Let’s lead our children together.</p>
-        <div class="cta"><a class="btn" href="#shop">SHOP NEW ARRIVALS</a><a class="btn-outline" href="#story">READ OUR STORY</a></div>
+  </div>
+
+  <!-- THIN-LINED MAIN NAV (only these 4) -->
+  <nav class="subnav container subnav-main">
+    <a href="#shop">SHOP</a>
+    <a href="authors.html">OUR STORY</a>
+    <a href="#contact">CONTACT</a>
+    <a href="mission.html">MISSION</a>
+  </nav>
+</header>
+
+  \1
+
+    <!-- Collage-style billboard hero (under header) -->
+    <section id="marquee" class="marquee">
+      <div class="marquee-decor lt"><img src="assets/img/b3.jpg" alt=""></div>
+      <div class="marquee-decor lb"><img src="assets/img/b1" alt=""></div>
+      <div class="marquee-decor rt"><img src="assets/img/b2.jpg" alt=""></div>
+      <div class="marquee-decor rb"><img src="assets/img/b1" alt=""></div>
+
+      <div class="marquee-inner container">
+        <div class="marquee-kicker">
+          <span>MADE</span><span>WITH</span><span>LOVE</span>
+        </div>
+        <h1 class="marquee-title">THOUGHTFULLY<br>CURATED CHILDREN<br>STATIONERY</h1>
+        <a class="btn-soft marquee-cta" href="#shop" aria-label="Learn more about our stationery">LEARN MORE</a>
       </div>
     </section>
-    <section class="ribbon"><div class="container ribbon-track"><span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span></div></section>
-    <section class="split container" id="about">
-      <div class="split-left"><h2>HANDMADE<br/>WITH LOVE</h2><p>We design and craft books and stationery in small batches. Each piece is ethically produced with archival materials and a soft earthy palette.</p></div>
-      <div class="split-right"><img src="assets/img/feature.png" alt="Handmade set"></div>
-    </section>
-    <section id="shop" class="section container">
-      <h3 class="section-title">New & Noteworthy</h3>
-      <div class="grid">
-        <article class="card"><div class="card-img"><img src="assets/img/p1.png" alt="Our Imam's"></div><div class="card-meta"><h4>Our Imam's</h4><p class="muted">Hardcover • $20</p><button class="btn-small add-to-cart" data-id="p1" data-name="Our Imam's" data-price="20" data-img="assets/img/p1.png">Add to Cart</button></div></article>
-        <article class="card"><div class="card-img"><img src="assets/img/p2.png" alt="Crayons By Fatima"></div><div class="card-meta"><h4>Crayons By Fatima</h4><p class="muted">Set of 24 • $11.99</p><button class="btn-small add-to-cart" data-id="p2" data-name="Crayons By Fatima" data-price="11.99" data-img="assets/img/p2.png">Add to Cart</button></div></article>
-        <article class="card"><div class="card-img"><img src="assets/img/p3.png" alt="Imam Hussain"></div><div class="card-meta"><h4>Imam Hussain</h4><p class="muted">Children's • $99</p><button class="btn-small add-to-cart" data-id="p3" data-name="Imam Hussain" data-price="99" data-img="assets/img/p3.png">Add to Cart</button></div></article>
-      </div>
-    </section>
-    <section id="story" class="stripe">
-      <div class="container stripe-inner">
-        <div class="stripe-text"><h3>CUSTOM SAVE THE DATES & INVITATIONS</h3><p>We accept a limited number of bespoke stationery projects each season. From letterpress to foil, our studio can craft heirloom‑quality pieces that carry your story.</p><a class="btn-soft" href="#">INQUIRE</a></div>
-        <div class="stripe-art"></div>
-      </div>
-    </section>
-    <section class="newsletter container">
-      <h3>Join the list</h3><p class="muted">Be the first to know about new releases and restocks.</p>
-      <form class="inline-form"><input type="email" placeholder="Email address" required><button class="btn-small" type="submit">Sign Up</button></form>
-    </section>
-    <section class="poster-wrap"><div class="poster"><header class="poster-head"><div class="poster-brand">AQEELAH BOOKS</div><div class="poster-subbrand">publishing house</div></header><h3 class="poster-title">MEET THE AUTHORS</h3><p class="poster-sub">the hearts behind the stories</p><div class="poster-body"><p>We are honored to introduce the team behind Aqeelah Publishing — a husband & wife duo who embarked on a journey to write meaningful children’s books rooted in the love of Allah and the teachings of the Ahl al‑Bayt.</p><p>Their adventure began in 2023, when the birth of their son inspired them to write about the very personalities they longed to teach him about. They write with a shared vision: <em>to nurture young hearts with wilāyah and to craft books that families can turn to as a means of bonding, guidance, and love.</em></p></div></div></section>
-    <section class="poster-wrap"><div class="poster"><h3 class="poster-title">OUR MISSION</h3><p class="poster-sub">In the Name of the Most High</p><div class="poster-body"><p>At Aqeelah Books, we aim to plant seeds of love for Allah and His beloved Ahl al‑Bayt. By nurturing these seeds, we hope to grow strong roots of faith, wisdom, and kindness. Through our crafted children’s books, we cultivate a sense of wonder and curiosity.</p><p>Each page is a garden of words, blooming with the love of those who have given everything in the way of their Lord. We pray these words inspire our young readers to live a life of purpose and devotion to the Blessed Fourteen.</p></div></div></section>
-  </main>
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><div class="logo small">AQEELAH BOOKS</div><p class="muted">© <span id="year"></span> AQEELAH BOOKS. All rights reserved.</p></div>
-      <nav><a href="#about">About</a><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="#contact">Contact</a></nav>
-      <div class="payments muted">Credit — Debit — Zelle — Venmo</div>
+<section class="ribbon"><div class="container ribbon-track"><span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> <span>WITH LOVE</span><span>SMALL‑BATCH</span><span>ARCHIVAL PAPERS</span><span>FSC CERTIFIED</span> </div></section>
+    <section id="about" class="love-details">
+  <div class="ld-left">
+    <h2>LOVE IS IN THE<br>DETAILS.</h2>
+    <p class="muted">A CHILDREN'S BOOK ON THE LIFE OF ABU AL-FADHL ABBAS, THE LOYAL AND COURAGEOUS SON OF IMAM ALI AND UMMUL BANEEN. A STORY OF BRAVERY, HUMILITY, AND SACRIFICE ABOUT THE MOON OF THE HASHEMITES.</p>
+    <div class="ld-links">
+      <a href="#portfolio">P&nbsp;O&nbsp;R&nbsp;T&nbsp;F&nbsp;O&nbsp;L&nbsp;I&nbsp;O</a>
+      <a href="#services">S&nbsp;E&nbsp;R&nbsp;V&nbsp;I&nbsp;C&nbsp;E&nbsp;S</a>
     </div>
-    <div class="marigold"></div>
-  </footer>
+  </div>
+  <div class="ld-right">
+    <img class="ld-hero" src="assets\img\b1.jpg" alt="Stationery flatlay">
+    <svg class="ld-cactus" viewBox="0 0 80 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="#E6A983" stroke="#6F4E37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M38 152 v-84 q0-8 8-8t8 8 v30 q0 8 8 8t8-8 v-26 q0-18-12-30t-28-12q-16 0-28 12T-8 72v26q0 8 8 8t8-8v-30q0-8 8-8t8 8v116" />
+      </g>
+    </svg>
+    <div class="ld-stamp"><span>MADE&nbsp;W.&nbsp;LOVE</span></div>
+  </div>
+</section>
+
+<!-- === Shop Preview (3 items) === -->
+<section id="shop-preview" class="section shop-preview">
+  <div class="container">
+    <h3 class="section-title">NEW & NOTEWORTHY</h3>
+
+    <div class="grid">
+     <!-- Product 1 -->
+<article class="card">
+  <div class="card-img">
+    <img src="assets/img/book1.jpg" alt="My First Book About the Qur'an">
+  </div>
+  <div class="card-meta">
+    <small class="muted">Book</small>
+    <h4>My First Book About the Qur’an</h4>
+    <div class="price">$12.00</div>
+    <button
+      class="btn-small add-to-cart"
+      data-id="book-quran"
+      data-name="My First Book About the Qur’an"
+      data-price="12"
+      data-img="assets/img/book1.jpg">Add to Cart</button>
+  </div>
+</article>
+
+<!-- Product 2 -->
+<article class="card">
+  <div class="card-img">
+    <img src="assets/img/book2.jpg" alt="My First Book About Ramadan">
+  </div>
+  <div class="card-meta">
+    <small class="muted">Book</small>
+    <h4>My First Book About Ramadan</h4>
+    <div class="price">$12.00</div>
+    <button
+      class="btn-small add-to-cart"
+      data-id="book-ramadan"
+      data-name="My First Book About Ramadan"
+      data-price="12"
+      data-img="assets/img/book2.jpg">Add to Cart</button>
+  </div>
+</article>
+
+<!-- Product 3 -->
+<article class="card">
+  <div class="card-img">
+    <img src="assets/img/book3.jpg" alt="My First Book About Prophet Muhammad">
+  </div>
+  <div class="card-meta">
+    <small class="muted">Book</small>
+    <h4>My First Book About Prophet Muhammad</h4>
+    <div class="price">$12.00</div>
+    <button
+      class="btn-small add-to-cart"
+      data-id="book-muhammad"
+      data-name="My First Book About Prophet Muhammad"
+      data-price="12"
+      data-img="assets/img/book3.jpg">Add to Cart</button>
+  </div>
+</article>
+
+    </div>
+
+    <div class="cta-center">
+      <a class="btn-soft" href="#shop">VIEW ALL</a>
+    </div>
+  </div>
+</section>
+
+
+    
+<section id="portfolio" class="rodeo-split">
+  <div class="rodeo-col left">
+    <h2>NOT YOUR FIRST<br>RODEO?</h2>
+    <p class="muted">Do your children ‘love reading books? If you’re ready to jump into a kids wonderland place your order:</p>
+    <div class="cta">
+      <a class="btn-pill" href="#contact">INQUIRE</a>
+      <a class="btn-pill" href="#shop">SHOP THE LATEST BOOKS</a>
+    </div>
+  </div>
+  <div class="rodeo-col right">
+    <div class="rodeo-decor side left">R E A L&nbsp;&nbsp; T R U T H</div>
+    <div class="rodeo-decor side right">R E A L&nbsp;&nbsp; T R U T H</div>
+
+    <svg class="signpost" viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.18"/></filter></defs>
+      <rect x="150" y="70" width="20" height="230" rx="8" fill="#E6A983" stroke="#7B5A3E" stroke-width="3" filter="url(#shadow)"/>
+      <path d="M55,100 h170 q20,0 20,18 v10 q0,18 -20,18 H55 q-18,0 -18,-18 v-10 q0,-18 18,-18 z" fill="#F9E8C9" stroke="#7B5A3E" stroke-width="3"/>
+      <path d="M225,100 l20,-12 v24 z" fill="#F9E8C9" stroke="#7B5A3E" stroke-width="3"/>
+      <path d="M60,160 h170 q20,0 20,18 v10 q0,18 -20,18 H60 q-18,0 -18,-18 v-10 q0,-18 18,-18 z" fill="#F9E8C9" stroke="#7B5A3E" stroke-width="3"/>
+      <path d="M230,160 l20,-12 v24 z" fill="#F9E8C9" stroke="#7B5A3E" stroke-width="3"/>
+      
+<g font-family="Inter, system-ui, sans-serif" font-weight="700" fill="#6A4C2E" font-size="18" text-anchor="middle">
+        <text x="140" y="124">LET’S TELL</text>
+        <text x="148" y="184">THEIR STORY</text>
+      </g>
+
+    </svg>
+  </div>
+</section>
+<section id="invite-rodeo" class="invite">
+  <div class="invite-inner container">
+    <div class="invite-hero">
+      <span class="invite-word">YOU’RE</span>
+      <svg class="invite-envelope" viewBox="0 0 120 72" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="#F3E7CF" stroke="#7A552E" stroke-width="3" stroke-linejoin="round">
+          <rect x="6" y="10" width="108" height="52" rx="8" />
+          <path d="M6,12 L60,46 L114,12" fill="none"/>
+          <path d="M6,62 L48,34" fill="none"/>
+          <path d="M114,62 L72,34" fill="none"/>
+          <circle cx="60" cy="40" r="3" fill="#7A552E"/>
+        </g>
+      </svg>
+      <span class="invite-word">INVITED</span>
+    </div>
+
+    <p class="invite-copy">
+      Sign up to be the first to know about sales, new product launches, exclusive offers, and more!
+      We promise we’ll keep the emails infrequent and the content top-notch.
+    </p>
+
+    <form class="invite-form" onsubmit="event.preventDefault()">
+      <input id="invite-email" type="email" placeholder="EMAIL ADDRESS" required />
+      <button class="invite-btn" type="submit">SUBSCRIBE</button>
+    </form>
+  </div>
+</section>
+
+
+    </main><!-- Instagram band -->
+<section class="insta-band">
+  <div class="container insta-wrap">
+    <div class="insta-plaque">
+      <div class="plaque-inner">
+               <div class="plaque-brand">AQEELAH</div>
+        
+        <div class="plaque-brand">BOOKS</div>
+      </div>
+    </div>
+
+    <h3 class="insta-heading">VIEW MORE ON INSTA</h3>
+
+    <div class="insta-grid">
+      <a class="insta-tile" href="https://www.instagram.com/aqeelahpublishing/p/DMqqKxBuMNL/" aria-label="Open post 1"><img src="assets/img/i3.png" alt=""></a>
+      <a class="insta-tile" href="https://www.instagram.com/aqeelahpublishing/p/DN63zzADf9c/" aria-label="Open post 3"><img src="assets/img/i2.png" alt=""></a>
+      <a class="insta-tile" href="https://www.instagram.com/aqeelahpublishing/p/DMqu9HOu_j0/" aria-label="Open post 4"><img src="assets/img/i4.png" alt=""></a>
+    </div>
+
+    <div class="insta-handle">@aqeelahpublishing</div>
+  </div>
+</section>
+<footer class="footer-split">
+  <div class="container footer-grid">
+    <div class="f-col">
+      <h4 class="f-head">CONNECT.</h4>
+      <ul class="f-list">
+        <li><a href="https://www.instagram.com/aqeelahpublishing/" target="_blank" rel="noopener">INSTAGRAM</a></li>
+        <li><a href="#" target="_blank" rel="noopener">FACEBOOK</a></li>
+        <li><a href="#" target="_blank" rel="noopener">PINTEREST</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4 class="f-head">INFO.</h4>
+      <ul class="f-list"><li><a href="#shop">SERVICES</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="mission.html">MISSION</a></li>
+        <li><a href="authors.html">AUTHORS</a></li></ul>
+    </div>
+    <div class="f-col">
+      <h4 class="f-head">SHOP.</h4>
+      <ul class="f-list">
+        <li><a href="#shop">STATIONERY</a></li>
+        <li><a href="#shop">BOOKS</a></li>
+      </ul>
+    </div>
+
+    <div class="f-badge" aria-hidden="true">
+      <!-- Decorative badge (original artwork) -->
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="badge-svg">
+        <defs>
+          <filter id="bdgShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity=".25"/>
+          </filter>
+        </defs>
+        <path d="M110,6 l24,20 h32 l6,24 l24,24 l-24,24 l6,24 h-32 l-24,20 l-24,-20 h-32 l-6,-24 l-24,-24 l24,-24 l-6,-24 h32z"
+              fill="#F4B9A8" stroke="#7A552E" stroke-width="4" filter="url(#bdgShadow)"/>
+        <g transform="translate(110,110)" stroke="#6D4E2F" stroke-width="3" fill="none" stroke-linecap="round">
+          <path d="M0,40 C-2,10 -8,-18 0,-40 C8,-18 2,10 0,40z"/>
+          <path d="M0,18 C-10,0 -26,-6 -40,-2 C-18,2 -9,14 0,24" />
+          <path d="M0,18 C10,0 26,-6 40,-2 C18,2 9,14 0,24" />
+        </g>
+        <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6D4E2F" text-anchor="middle">
+          <text x="110" y="56">A Q E E L A H</text>
+          <text x="110" y="74">B O O K S</text>
+                    <text x="110" y="190">E S T.&nbsp;2 0 2 5</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="container bar-inner">
+      COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span> &nbsp;|&nbsp; <a class="site-credit" href="#" target="_blank" rel="noopener">Ayaan</a>
+    </div>
+  </div>
+</footer>
   <script src="script.js"></script>
+
+  <script>
+  // Minimal, no-dependency interactivity limited to NEW & NOTEWORTHY
+  document.addEventListener('DOMContentLoaded', function(){
+    const cartLink = document.querySelector('.top-right .cart');
+    function getCount(){
+      if(!cartLink) return 0;
+      const m = cartLink.textContent.match(/\((\d+)\)/);
+      return m ? parseInt(m[1], 10) : 0;
+    }
+    function setCount(n){
+      if(cartLink){ cartLink.textContent = `CART (${n})`; }
+    }
+    // Add-to-cart buttons: increment count + small visual tick
+    document.querySelectorAll('.shop-preview .add-to-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setCount(getCount() + 1);
+        btn.style.transform = 'translateY(-2px) scale(1.02)';
+        setTimeout(()=>{ btn.style.transform=''; }, 180);
+      });
+    });
+    // VIEW ALL: smooth-scroll if #shop exists
+    const viewAll = document.querySelector('.shop-preview .cta-center .btn-soft');
+    if(viewAll){
+      viewAll.addEventListener('click', (e) => {
+        const hash = viewAll.getAttribute('href');
+        if(hash && hash.startsWith('#')){
+          const el = document.querySelector(hash);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    }
+  });
+  </script>
 </body>
 </html>
+
