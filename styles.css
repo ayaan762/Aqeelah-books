@@ -1,0 +1,1565 @@
+:root{
+  --sage:#cfdab9;
+  --butter:#f4e77a;
+  --cream:#f9f5e6;
+  --peach:#f3d9b1;
+  --terra:#b7835f;
+  --ink:#2c251f;
+  --muted:#6c5f57;
+  --line:#e9e0cf;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family: ui-serif, Georgia, 'Times New Roman', serif}
+.container{width:min(1100px,92%);margin-inline:auto}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block;border-radius:10px}
+.logo-img{height:42px;width:auto;display:block}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.announce{background:var(--butter);padding:10px 0;text-align:center;font-size:.9rem;border-bottom:1px solid var(--line)}
+.site-header{background:var(--cream);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{font-weight:800;letter-spacing:.08em}
+.cart{font-size:.9rem}
+.menu{display:none;background:transparent;border:1px solid var(--line);border-radius:10px;padding:6px 10px}
+
+.subnav{display:flex;gap:28px;justify-content:center;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.subnav a{font-size:.95rem;letter-spacing:.15em}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;padding:28px 0 36px}
+.hero h1,.hero h2{font-size:clamp(1.8rem,1.2rem + 3.2vw,3rem);line-height:1.05;margin:0 0 10px;font-variant-ligatures:none;letter-spacing:.02em}
+.hero h1 span,.hero h2 span{background:linear-gradient(90deg,var(--butter),var(--peach));padding:2px 6px;border-radius:6px}
+.hero p{color:var(--muted);margin:0 0 14px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+
+.btn{display:inline-block;background:var(--terra);color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:700}
+.btn:hover{opacity:.95}
+.btn-outline{display:inline-block;border:1px solid var(--ink);padding:12px 16px;border-radius:999px}
+.btn-small{padding:10px 14px;border-radius:999px;border:1px solid var(--ink);background:#fff}
+.btn-soft{padding:10px 14px;border-radius:999px;background:var(--peach);border:1px solid var(--ink)}
+
+.ribbon{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff7e6}
+.ribbon-track{display:flex;gap:40px;overflow:auto;white-space:nowrap;padding:10px 0;font-size:.9rem;color:var(--muted);letter-spacing:.18em}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:30px 0}
+.split-left{background:var(--butter);padding:22px;border-radius:14px;border:1px solid var(--line)}
+.split-left h2{margin:0 0 6px;letter-spacing:.06em}
+.split-right{background:var(--cream);padding:8px;border-radius:14px;border:1px solid var(--line)}
+.split-right img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+.section{padding:40px 0}
+.section-title{letter-spacing:.12em;margin:0 0 14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.card-meta{padding:10px}
+.muted{color:var(--muted)}
+
+/* product images fit nicely */
+.card-img{height:250px;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;border-bottom:1px solid var(--line)}
+
+.stripe{background:var(--peach);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stripe-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:26px 0}
+.stripe-text h3{margin:0 0 6px}
+.stripe-art{height:140px;background:linear-gradient(90deg,var(--sage),var(--butter),var(--peach));border:1px dashed var(--ink);border-radius:12px}
+
+.newsletter{padding:36px 0;text-align:center}
+.inline-form{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.inline-form input{padding:12px 14px;border:1px solid var(--ink);border-radius:999px;width:min(420px,80%);background:#fff}
+
+/* FOOTER */
+.site-footer{background:var(--sage);border-top:2px solid var(--ink);margin-top:30px}
+.site-footer .container{max-width:100% !important;width:100%;padding-left:20px;padding-right:20px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:20px 0;align-items:start}
+.footer-grid > div:first-child{justify-self:start;text-align:left}
+.footer-grid nav{justify-self:center;display:flex;gap:40px}
+.footer-grid nav a{text-decoration:none;font-weight:500}
+.footer-grid .payments{justify-self:end;text-align:right}
+.logo.small{font-weight:800}
+.marigold{height:16px;background:var(--terra)}
+
+/* POSTER SECTIONS */
+.poster-wrap{background:#9aa7b3;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.poster{width:min(820px,92%);margin:0 auto;background:#fcf4d9;border:1px solid #d6caa9;box-shadow:0 2px 0 rgba(0,0,0,.04);border-radius:8px;padding:22px 22px 24px;text-align:center;color:#2b241f}
+.poster-head{margin-bottom:8px}
+.poster-brand{font-family: ui-serif, Georgia, 'Times New Roman', serif; letter-spacing:.14em; font-weight:800}
+.poster-subbrand{font-family:'Times New Roman', Georgia, serif;font-style:italic;letter-spacing:.03em;margin-top:2px;opacity:.9}
+.poster-title{font-family: ui-serif, Georgia, 'Times New Roman', serif; letter-spacing:.12em; margin:8px 0 2px; font-size:1.3rem}
+.poster-sub{font-style:italic;color:#6b625b;margin:0 0 12px}
+.poster-body{font-family: ui-serif, Georgia, 'Times New Roman', serif;line-height:1.75;font-size:1.02rem;text-align:left;max-width:700px;margin:0 auto}
+.poster-body p{margin:0 0 12px}
+
+/* LOGO + CENTERED TITLE IN HEADER */
+.brand-wrap{display:flex;align-items:center;gap:12px}
+.site-title{margin:0;font-size:1.6rem;font-weight:800;letter-spacing:.05em;color:var(--ink);line-height:1.1}
+.site-header .nav{position:relative}
+.site-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;pointer-events:none;white-space:nowrap}
+
+/* HERO IMG */
+.hero-left img{width:100%;height:auto;object-fit:contain}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .stripe-inner{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  /* header title flows normally to avoid overlap */
+  .brand-wrap{display:flex;align-items:center;gap:8px;justify-content:center;flex:1}
+  .site-title{position:static;transform:none;font-size:1.25rem;line-height:1.2;white-space:normal;text-align:center}
+  .nav{gap:8px}
+
+  /* product cards single column + smaller image */
+  .grid{grid-template-columns:1fr}
+  .card-img{height:200px}
+
+  /* footer stacks cleanly */
+  .footer-grid{grid-template-columns:1fr;gap:14px;text-align:center}
+  .footer-grid > div:first-child{justify-self:center}
+  .footer-grid nav{justify-self:center;flex-direction:column;gap:10px}
+  .footer-grid .payments{justify-self:center;text-align:center}
+
+  /* poster padding */
+  .poster-wrap{padding:22px 0}
+  .poster{padding:16px 14px}
+}
+/* --- Footer mobile/tablet fixes --- */
+@media (max-width: 768px){
+  .footer-grid{
+    grid-template-columns: 1fr;  /* stack */
+    gap: 16px;
+    text-align: center;
+  }
+  .footer-grid > div:first-child{
+    justify-self: center;
+    text-align: center;
+  }
+  .footer-grid nav{
+    justify-self: center;
+    display: flex;
+    flex-direction: column;      /* vertical list */
+    gap: 10px;
+  }
+  .footer-grid .payments{
+    justify-self: center;
+    text-align: center;
+    white-space: normal;         /* allow wrapping */
+    overflow-wrap: anywhere;     /* break long strings if needed */
+    word-break: break-word;
+    max-width: 90vw;             /* prevent overspill */
+  }
+  .site-footer .container{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* safety: prevent any accidental horizontal scroll */
+html, body, .site-footer{
+  overflow-x: hidden;
+}
+/* ===== Cart Drawer ===== */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:saturate(120%) blur(2px);z-index:98;opacity:0;pointer-events:none;transition:.2s}
+.cart-drawer{position:fixed;right:0;top:0;height:100vh;width:min(420px,92%);background:#fff;border-left:1px solid var(--line);z-index:99;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column}
+.cart-drawer.show{transform:none}
+.cart-overlay.show{opacity:1;pointer-events:auto}
+.hidden{display:block} /* utility: we control via .show */
+
+/* Head/foot */
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
+.cart-close{border:none;background:transparent;font-size:26px;line-height:1;cursor:pointer}
+.cart-items{padding:8px 12px;overflow:auto;flex:1}
+.cart-foot{border-top:1px solid var(--line);padding:14px 16px}
+.cart-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+
+/* Line item */
+.cart-item{display:grid;grid-template-columns:60px 1fr auto;gap:10px;align-items:center;padding:10px 6px;border-bottom:1px dashed var(--line)}
+.cart-item img{width:60px;height:60px;object-fit:cover;border-radius:8px}
+.cart-item h5{margin:0;font-size:.98rem}
+.cart-item .price{color:var(--muted);font-size:.92rem}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty button{width:28px;height:28px;border:1px solid var(--line);background:#fff;border-radius:6px;cursor:pointer}
+.remove-btn{border:none;background:transparent;color:#a33;cursor:pointer;margin-left:8px}
+/* Footer stick to bottom on cart page */
+.cart-body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.cart-body main{
+  flex: 1;                 /* content grows, footer pushes down */
+}
+.cart-body .site-footer{
+  margin-top: auto;        /* keeps footer at bottom when content is short */
+}
+/* ==== Cart page: always stick footer to bottom ==== */
+html, body { height: 100%; }        /* ensure full-height context */
+
+.cart-body{
+  min-height: 100dvh;               /* mobile-safe viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-body > .announce,
+.cart-body > .site-header{
+  flex: 0 0 auto;                   /* header/announce take natural height */
+}
+
+.cart-body > main{
+  flex: 1 0 auto;                   /* main fills remaining space */
+  display: block;                   /* avoid any weird collapses */
+}
+
+.cart-body > .site-footer{
+  flex: 0 0 auto;
+  margin-top: auto !important;      /* push footer down */
+}
+
+/* === Not Your First Rodeo (split CTA) === */
+.rodeo-split{
+  display:grid; grid-template-columns:1fr 1fr; min-height:68vh; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.rodeo-split .rodeo-col.left{ background:var(--bg); padding:72px 8vw; display:flex; flex-direction:column; justify-content:center }
+.rodeo-split .rodeo-col.right{ background:color-mix(in srgb, var(--sage) 92%, white 8%); position:relative; display:grid; place-items:center; padding:40px 0 }
+.rodeo-split h2{ font-family:"Bodoni Moda", serif; text-transform:uppercase; letter-spacing:.02em; font-size:clamp(2.0rem,1.2rem + 3.4vw,3.8rem); color:#7A552E; margin:0 0 14px }
+.rodeo-split p{ max-width:46ch; color:var(--muted); }
+.rodeo-split .cta{ display:flex; gap:16px; margin-top:22px; flex-wrap:wrap }
+.btn-pill{ background:transparent; border:2px solid #7A552E; color:#7A552E; border-radius:999px; padding:.9rem 1.4rem; letter-spacing:.22em; text-transform:uppercase; font-weight:700; font-size:.9rem }
+.btn-pill:hover{ background:#7A552E; color:#fff; transition:all .2s ease }
+
+.rodeo-split .signpost{ width:min(420px, 70%); height:auto; filter:drop-shadow(0 12px 24px rgba(0,0,0,.12)); }
+
+/* Decor text around art */
+.rodeo-decor{ position:absolute; font-weight:700; color:#7A552E; opacity:.7; letter-spacing:.6em; font-size:.82rem }
+.rodeo-decor.top{ top:12px; right:34px; transform:rotate(180deg) }
+.rodeo-decor.bottom{ bottom:12px; left:34px }
+.rodeo-decor.side{ top:50%; transform:translateY(-50%); writing-mode:vertical-lr }
+.rodeo-decor.side.left{ left:10px }
+.rodeo-decor.side.right{ right:10px }
+
+/* Responsive */
+@media (max-width: 980px){
+  .rodeo-split{ grid-template-columns:1fr; }
+  .rodeo-split .rodeo-col.left{ padding:56px 6vw }
+  .rodeo-split .rodeo-col.right{ padding:32px 0 }
+  .rodeo-decor{ display:none }
+}
+
+
+/* === Typography base === */
+h1,h2,h3,h4{ font-family:"Bodoni Moda", serif; letter-spacing:-.01em }
+body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif }
+
+
+/* === Love is in the details (editorial split) === */
+.love-details{
+  position:relative;
+  display:grid; grid-template-columns:1.05fr .95fr; align-items:center;
+  padding:72px 0;
+  background:linear-gradient(90deg, #D6E4E6 0 60%, #F4E6C8 60% 100%);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+}
+.love-details .ld-left{ padding-left:8vw; padding-right:6vw }
+.love-details h2{ font-family:"Bodoni Moda", serif; font-size:clamp(2.2rem,1.4rem + 3.2vw,3.8rem); line-height:1.02; letter-spacing:.02em; color:#7A552E; margin:0 0 14px }
+.love-details p{ max-width:58ch; }
+.ld-links{ display:flex; gap:48px; margin-top:26px; flex-wrap:wrap }
+.ld-links a{ text-decoration:underline; text-underline-offset:6px; letter-spacing:.5em; font-weight:600; font-size:.95rem; color:#7A552E }
+.ld-links a:hover{ opacity:.9 }
+
+.love-details .ld-right{ position:relative; padding:40px 0; display:grid; place-items:center }
+.ld-hero{ width:min(680px, 82%); height:auto; border-radius:16px; border:1px solid var(--line); box-shadow:0 16px 36px rgba(0,0,0,.10) }
+
+.ld-cactus{ position:absolute; left:calc(60% - 26px); bottom:28px; width:80px; height:auto; opacity:.9 }
+
+.ld-stamp{ position:absolute; top:18px; right:12%; width:120px; height:120px; border:2px solid #7A552E; border-radius:50%; display:grid; place-items:center; color:#7A552E; font-weight:700; letter-spacing:.18em; font-size:.7rem; background:rgba(255,255,255,.4); backdrop-filter:blur(2px) }
+.ld-stamp span{ transform:rotate(-12deg) }
+
+@media (max-width: 1000px){
+  .love-details{ grid-template-columns:1fr; background:#D6E4E6; }
+  .love-details .ld-right{ background:#F4E6C8; margin-top:16px; padding:32px 0 }
+  .ld-cactus{ left:24px; bottom:12px }
+}
+
+/* === Footer Split (Connect / Info / Shop + Badge) === */
+.footer-split{ background:var(--bg); border-top:1px solid var(--line) }
+.footer-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr auto; align-items:start; gap:40px; padding:48px 0 }
+.f-head{ margin:0 0 16px; font-family:"Bodoni Moda", serif; letter-spacing:.18em; text-transform:uppercase; color:#7A552E }
+.f-list{ list-style:none; margin:0; padding:0; }
+.f-list li{ margin:16px 0 }
+.f-list a{ letter-spacing:.22em; text-transform:uppercase; font-weight:600; font-size:.92rem; color:#6B5C52; text-decoration:none }
+.f-list a:hover{ color:#7A552E }
+.f-badge{ display:flex; align-items:center; justify-content:center; }
+.badge-svg{ width:220px; height:auto; }
+
+/* Bottom bar */
+.footer-bar{ background: color-mix(in srgb, var(--sage) 85%, white 15%); border-top:1px solid var(--line) }
+.bar-inner{ padding:14px 0; text-align:center; letter-spacing:.22em; text-transform:uppercase; font-size:.82rem; color:#6B5C52 }
+.bar-inner .brand{ color:#7A552E; font-weight:800 }
+.bar-inner a{ color:#6B5C52; text-decoration:none }
+.bar-inner a:hover{ color:#7A552E }
+
+@media (max-width: 900px){
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .f-badge{ grid-column:1 / -1; }
+}
+
+/* === Instagram Band (above footer) === */
+.insta-band{ background:#E8D98C; border-top:1px solid var(--line); }
+.insta-wrap{ display:grid; grid-template-columns: 1.2fr 1fr 1.6fr auto; align-items:center; gap:26px; padding:36px 0 }
+.insta-heading{ font-family:"Bodoni Moda", serif; letter-spacing:.12em; font-size:clamp(1.4rem,1rem + 1.8vw,2.2rem); color:#7A552E; text-align:center }
+
+/* Plaque */
+.insta-plaque{ background:#F8EED8; border:3px solid #6F5A3E; border-radius:18px; padding:18px 22px; box-shadow:0 8px 20px rgba(0,0,0,.08) }
+.plaque-inner{ text-align:center; color:#6F5A3E }
+.plaque-kicker{ font-weight:800; letter-spacing:.14em; font-size:.86rem }
+.plaque-underline{ letter-spacing:.38em; text-decoration:underline; text-underline-offset:4px; margin:.2rem 0 .6rem }
+.plaque-brand{ font-family:"Bodoni Moda", serif; font-weight:800; font-size:clamp(1.4rem,1rem + 2.2vw,2.4rem) }
+.plaque-and{ font-family:"Bodoni Moda", serif; font-weight:700; font-size:1.1rem; margin:.2rem 0 }
+
+/* Grid */
+.insta-grid{ display:grid; grid-template-columns:repeat(4, 1fr); gap:16px }
+.insta-tile{ position:relative; display:block; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden }
+.insta-tile img{ width:100%; height:160px; object-fit:cover; display:block }
+.insta-tile .play{ position:absolute; inset:auto auto 8px 8px; display:inline-flex; align-items:center; justify-content:center; width:36px; height:28px; background:#0008; color:#fff; font-weight:800; border-radius:6px; font-size:.88rem; }
+
+/* Handle */
+.insta-handle{ justify-self:end; letter-spacing:.22em; color:#6B5C52; font-weight:700 }
+
+/* Responsive */
+@media (max-width: 1080px){
+  .insta-wrap{ grid-template-columns: 1fr; gap:18px; text-align:center }
+  .insta-handle{ justify-self:center }
+}
+
+/* === Invite band (“YOU’RE INVITED”) === */
+.invite{
+  position:relative;
+  background: #F1C9AC; /* soft peach base */
+  background:
+    radial-gradient(1200px 520px at 50% 15%, rgba(255,255,255,.25), transparent 60%),
+    radial-gradient(420px 180px at 18% 30%, rgba(183,131,95,.22), transparent 60%),
+    radial-gradient(420px 180px at 82% 68%, rgba(183,131,95,.22), transparent 60%),
+    var(--peach);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding: 78px 0 86px;
+  overflow:hidden;
+}
+.invite-inner{ text-align:center; }
+
+.invite-hero{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:18px;
+}
+.invite-word{
+  font-family:"Bodoni Moda", serif;
+  font-weight:800;
+  letter-spacing:.18em;
+  font-size: clamp(1.6rem, 1.1rem + 3.2vw, 3rem);
+  color:#7A552E;
+  text-transform:uppercase;
+}
+.invite-envelope{
+  width:min(96px, 12vw);
+  height:auto;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.10));
+}
+
+.invite-copy{
+  max-width:min(80ch, 92%);
+  margin: 8px auto 28px;
+  color:#6B5C52;
+  line-height:1.65;
+  font-size:1.05rem;
+}
+
+.invite-form{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.invite-form input[type="email"]{
+  appearance:none;
+  background:transparent;
+  border:none;
+  border-bottom:2px solid #7A552E;
+  padding:14px 6px 10px;
+  width:min(520px, 82vw);
+  font-size:1.05rem;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  outline:none;
+}
+.invite-form input::placeholder{
+  color:#7A552E;
+  opacity:.9;
+}
+.invite-btn{
+  display:inline-block;
+  border:none;
+  border-radius:999px;
+  padding:16px 26px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  background:#E8DFC6;
+  color:#2C251F;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  cursor:pointer;
+}
+.invite-btn:hover{ transform:translateY(-1px); }
+
+@media (max-width: 560px){
+  .invite-hero{ gap:12px; }
+  .invite-word{ letter-spacing:.16em; }
+  .invite-btn{ width:100%; max-width:300px; }
+}
+
+
+
+/* Editorial LOVE IS IN THE DETAILS layout */
+.love-details{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:0;
+  background:linear-gradient(90deg, #D6E4E6 0 60%, #F4E6C8 60% 100%);
+  padding: 72px 0;
+}
+.love-details .ld-left{ padding: 0 6vw; }
+.love-details h2{
+  font-family:"Bodoni Moda", serif;
+  font-weight:900;
+  font-size: clamp(2.2rem, 1rem + 4.2vw, 4.2rem);
+  line-height:1.06;
+  color:#7A552E;
+  margin:0 0 24px;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.love-details .muted{ color:#5e5a54; line-height:1.8; max-width:60ch; }
+.ld-links{ margin-top:26px; display:flex; gap:40px; }
+.ld-links a{ text-decoration:none; letter-spacing:.5em; font-weight:700; color:#7A552E; }
+.ld-right{ position:relative; display:flex; align-items:center; justify-content:center; }
+.ld-hero{ max-width:min(620px, 86%); height:auto; border-radius:6px; box-shadow:0 12px 38px rgba(0,0,0,.18); }
+.ld-cactus{ position:absolute; left:-40px; bottom:8%; width:70px; opacity:.9; }
+.ld-stamp{ position:absolute; right:2%; top:4%; font-size:.8rem; color:#6F4E37; border:2px dashed #6F4E37; border-radius:50%; padding:18px 12px; transform:rotate(-16deg); background:rgba(255,245,230,.6); }
+
+@media (max-width: 900px){
+  .love-details{ grid-template-columns: 1fr; background:#D6E4E6; }
+  .ld-right{ order:-1; padding: 0 4vw 24px; }
+  .love-details .ld-left{ padding: 0 6vw 12px; }
+}
+
+/* Moving banner ribbon */
+.ribbon{ background:#e4deb8; border-top:1px solid #d0c7b5; border-bottom:1px solid #d0c7b5; overflow:hidden; }
+.ribbon-track{
+  display:flex; gap:40px; width:max-content; white-space:nowrap;
+  font-weight:700; letter-spacing:.25em;
+  padding:12px 0;
+  animation:ribbon-scroll 28s linear infinite;
+}
+@keyframes ribbon-scroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+
+/* === Collage Billboard (under header) === */
+.marquee{
+  position:relative;
+  min-height:72vh;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  background:color-mix(in srgb, var(--cream) 90%, white 10%);
+  border-bottom:1px solid var(--line);
+}
+.marquee-inner{ text-align:center; position:relative; z-index:2; }
+.marquee-kicker{
+  display:flex; gap:26px; justify-content:center; align-items:center;
+  font-weight:800; letter-spacing:.35em; color:#7A552E; margin-bottom:10px;
+  font-size:.95rem; text-transform:uppercase;
+}
+.marquee-kicker span{ display:inline-block; }
+.marquee-title{
+  font-family:"Bodoni Moda", serif;
+  font-weight:900;
+  font-size: clamp(2.2rem, 1rem + 6vw, 5rem);
+  line-height:1.02;
+  letter-spacing:.02em;
+  color:color-mix(in srgb, #7A552E 92%, black 8%);
+  margin:0 0 18px;
+  text-transform:uppercase;
+}
+.marquee-cta{ font-weight:800; padding:14px 24px; letter-spacing:.12em; }
+
+/* floating decor images */
+.marquee-decor{ position:absolute; z-index:1; filter: drop-shadow(0 12px 28px rgba(0,0,0,.14)); }
+.marquee-decor img{ width:min(340px, 26vw); height:auto; border-radius:12px; border:1px solid var(--line); }
+.marquee-decor.lt{ left:6%; top:10%; transform:rotate(-2deg); }
+.marquee-decor.lb{ left:2%; bottom:6%; transform:rotate(-4deg); }
+.marquee-decor.rt{ right:8%; top:8%; transform:rotate(1deg); }
+.marquee-decor.rb{ right:10%; bottom:8%; transform:rotate(3deg); }
+
+@media (max-width: 980px){
+  .marquee{ min-height:64vh; }
+  .marquee-decor img{ width:min(240px, 36vw); }
+  .marquee-decor.lb{ display:none; }
+  .marquee-decor.rb{ display:none; }
+}
+
+/* ===== Header (2-row style like screenshot) ===== */
+.nav.nav-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0;
+}
+.top-link{
+  font-size:.92rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.top-right{ display:flex; align-items:center; gap:28px; }
+
+/* Override old absolute-centering so title sits naturally in the middle */
+.site-header .nav .site-title{
+  position:static;
+  left:auto; top:auto; transform:none;
+  margin:0;
+  pointer-events:auto;
+  white-space:normal;
+  font-family:"Bodoni Moda", serif;
+  font-weight:900;
+  letter-spacing:.06em;
+  color:#7A552E;
+  font-size:clamp(1.8rem, 1.2rem + 2.6vw, 3rem);
+  text-transform:none;
+  line-height:1.1;
+}
+
+/* Bottom nav bar look */
+.subnav.subnav-main{
+  display:flex;
+  gap:46px;
+  justify-content:center;
+  padding:12px 0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.subnav.subnav-main a{
+  font-size:.95rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+/* Small screen tweaks */
+@media (max-width:640px){
+  .nav.nav-top{ gap:10px; }
+  .top-right{ gap:16px; }
+  .subnav.subnav-main{ gap:24px; flex-wrap:wrap; }
+}
+
+/* === Shop Preview (3-up layout & spacing) === */
+.shop-preview{ padding:48px 0 56px; 
+  /* Soft multi-tone background using your theme colors */
+  background:
+    radial-gradient(1200px 520px at 20% 10%, rgba(255,255,255,.35), transparent 60%),
+    radial-gradient(600px 260px at 80% 70%, color-mix(in srgb, var(--sage) 30%, transparent), transparent 60%),
+    radial-gradient(520px 220px at 10% 80%, color-mix(in srgb, var(--butter) 28%, transparent), transparent 62%),
+    linear-gradient(135deg, color-mix(in srgb, var(--cream) 92%, white 8%), color-mix(in srgb, var(--peach) 55%, var(--sage) 10%));
+}
+.shop-preview .grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 32px 36px; /* nicer card spacing */
+  align-items: stretch;
+
+  grid-template-columns: minmax(280px, 520px) !important;
+  justify-content: center !important;
+  justify-items: center !important;
+}
+.shop-preview .card{ height:100%; max-width:520px; }
+.shop-preview .card-img{
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  border-radius:8px;
+}
+.shop-preview .card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* responsive: 2 cols then 1 */
+@media (max-width: 980px){
+  .shop-preview .grid{ grid-template-columns: repeat(2, minmax(220px,1fr)); }
+}
+@media (max-width: 600px){
+  .shop-preview .grid{ grid-template-columns: 1fr; }
+}
+/* kept for history: removed background override to show gradient */
+
+/* give breathing room below the cards so the CTA never overlaps */
+.shop-preview .grid{
+  margin-bottom:28px;
+}
+
+/* center the CTA and neutralize any inherited positioning from .btn-soft */
+.shop-preview .cta-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  margin-top:8px;
+}
+.shop-preview .cta-center .btn-soft{
+  position:static !important;
+  transform:none !important;
+  margin:0 auto;
+}
+
+
+
+
+/* === Requested tweaks === */
+/* Hide the mushroom/cactus in LOVE IS IN THE DETAILS */
+.ld-cactus{ display:none !important; }
+
+/* New & Noteworthy: prettier + interactive buttons */
+.shop-preview .add-to-cart{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+  border:2px solid #7A552E;
+  background:linear-gradient(180deg,#FFFFFF 0%, #F8EED8 100%);
+  font-weight:800;
+  letter-spacing:.12em;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .2s ease;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+.shop-preview .add-to-cart::before{
+  content:"🛒";
+  display:inline-block;
+  transform:translateY(1px);
+}
+.shop-preview .add-to-cart::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(120deg, transparent 0, rgba(255,255,255,.55) 40%, transparent 80%);
+  transform: translateX(-120%);
+  pointer-events:none;
+}
+.shop-preview .add-to-cart:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.12); }
+.shop-preview .add-to-cart:hover::after{ animation: btn-shine 800ms ease forwards; }
+.shop-preview .add-to-cart:active{ transform:translateY(0); }
+
+/* VIEW ALL: make it bolder and add arrow */
+.shop-preview .cta-center .btn-soft{
+  display:inline-flex; align-items:center; gap:10px;
+  border:2px solid #7A552E;
+  background:linear-gradient(180deg,#F9EBD4,#F1C9AC);
+  font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  padding:14px 22px;
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.shop-preview .cta-center .btn-soft::after{
+  content:"↗";
+  font-size:1.1em;
+}
+.shop-preview .cta-center .btn-soft:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.16);
+}
+
+/* Keyboard focus for accessibility */
+.shop-preview .add-to-cart:focus-visible,
+.shop-preview .cta-center .btn-soft:focus-visible{
+  outline:3px solid #7A552E; outline-offset:2px;
+  box-shadow:0 0 0 6px rgba(122,85,46,.15);
+}
+
+/* Button shine animation */
+@keyframes btn-shine{ to{ transform: translateX(120%);} }
+
+
+/* === Align NEW & NOTEWORTHY buttons to .btn-pill (Inquire) === */
+.shop-preview .add-to-cart,
+.shop-preview .cta-center .btn-soft{
+  background: transparent !important;
+  color: #7A552E !important;
+  border: 2px solid #7A552E !important;
+  border-radius: 999px !important;
+  padding: 12px 18px !important;
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+  font-weight: 700 !important;
+  font-size: .9rem !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color .2s ease, color .2s ease !important;
+}
+
+/* Remove previous icon/shine added earlier */
+.shop-preview .add-to-cart::before,
+.shop-preview .add-to-cart::after{
+  content: none !important;
+  background: none !important;
+}
+
+/* Hover/focus to mirror .btn-pill */
+.shop-preview .add-to-cart:hover,
+.shop-preview .cta-center .btn-soft:hover{
+  background:#7A552E !important;
+  color:#fff !important;
+}
+
+.shop-preview .add-to-cart:focus-visible,
+.shop-preview .cta-center .btn-soft:focus-visible{
+  outline: 2px solid #7A552E !important;
+  outline-offset: 2px;
+}
+
+
+/* [PATCH 2025-09-17F] Insta handle link style */
+.insta-handle{ text-decoration:none; }
+.insta-handle:hover{ opacity:.8; }
+
+
+/* === [PATCH 2025-09-17G] Force Insta tiles perfectly square by absolute-fill === */
+.insta-grid .insta-tile{ aspect-ratio:1/1 !important; height:auto !important; position:relative; overflow:hidden; }
+.insta-grid .insta-tile img{ position:absolute; inset:0; width:100% !important; height:100% !important; object-fit:cover !important; }
+/* === End PATCH 2025-09-17G === */
+
+
+/* === HOWDY hero (authors page) === */
+.howdy-page{ --howdy-green:#7D8B6A; --howdy-brown:#6B5C52; --howdy-peach:#F1C9AC; }
+
+/* Side decorative tiles (fixed, repeat vertically) */
+.howdy-page::before,
+.howdy-page::after{
+  content:"";
+  position:fixed;
+  top:0; bottom:0;
+  width:96px;
+  pointer-events:none;
+  z-index:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' fill='none'/%3E%3Cpath d='M48 6 78 36 48 66 18 36 48 6z M48 30 60 42 48 54 36 42 48 30z' fill='%23F1C9AC' stroke='%237A552E' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-size: 96px 96px;
+  opacity:.9;
+}
+.howdy-page::before{ left:0; }
+.howdy-page::after{ right:0; }
+
+/* Keep page content above the decorations */
+.howdy-hero, .announce, footer{ position:relative; z-index:1; }
+
+.howdy-hero{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items:center;
+  gap: clamp(18px, 2vw, 40px);
+  padding: clamp(18px, 3vw, 36px) 0;
+}
+.howdy-left .howdy-photo{
+  width:100%;
+  height:auto;
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.08);
+  border:1px solid var(--line);
+}
+.howdy-right{ max-width: 54ch; }
+.howdy-title{
+  font-family:"Bodoni Moda", serif;
+  font-weight:900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--howdy-green);
+  font-size: clamp(1.8rem, 1rem + 6vw, 5rem);
+  line-height:1.02;
+  margin: .2rem 0 .6rem;
+}
+.howdy-lede{
+  margin: 0 0 .4rem;
+  color: var(--howdy-brown);
+  font-weight:700;
+}
+.howdy-copy{
+  color: var(--muted);
+  line-height:1.8;
+  margin: 0 0 1.2rem;
+}
+.howdy-btn{
+  display:inline-block;
+  background: var(--howdy-peach);
+  border: 2px solid #7A552E;
+  color:#7A552E;
+  padding: .95rem 1.4rem;
+  border-radius: 999px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+.howdy-btn:hover{ transform: translateY(-1px); }
+.howdy-btn:active{ transform:none; }
+
+/* Responsive: single column with image on top */
+@media (max-width: 940px){
+  .howdy-hero{ grid-template-columns:1fr; }
+  .howdy-right{ max-width: 62ch; }
+}
+
+/* Keep no horizontal scroll due to side motifs on tiny screens */
+@media (max-width: 680px){
+  .howdy-page::before, .howdy-page::after{ width:64px; background-size:64px 64px; }
+}
+/* ensure sticky/fixed header stays above everything */
+.site-header{position:sticky;top:0;z-index:1000}
+
+
+/* remove or override the old pointer-events:none on .site-title */
+.site-title{
+  pointer-events:auto;            /* ensure it’s clickable */
+  text-decoration:none;           /* keep it looking like a heading */
+  color: inherit;
+  display:inline-block;
+}
+
+
+
+/* --- Howdy hero tweaks: image on right, larger visual weight --- */
+.howdy-hero .howdy-photo{
+  width: min(115%, 720px);
+  max-width: none;
+  display:block;
+  margin-inline: auto;
+}
+@media (max-width: 900px){
+  .howdy-hero .container{
+    display:block !important;
+  }
+  .howdy-hero .howdy-photo{
+    width: 100%;
+  }
+}
+
+
+/* --- Howdy hero layout refinement (text nudged right, bigger art) --- */
+.howdy-hero .howdy-right{ 
+  padding-left: clamp(32px, 5vw, 96px);
+}
+.howdy-hero .howdy-photo{
+  width: min(130%, 860px);
+  height: auto;
+  margin-left: auto;
+}
+@media (max-width: 900px){
+  .howdy-hero .howdy-right{ padding-left: 0; }
+  .howdy-hero .howdy-photo{ width: 100%; margin-left: 0; }
+}
+
+/* Utility: screen-reader only / invisible anchor */
+.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+
+/* --- Revert howdy photo to original/normal size --- */
+.howdy-hero .howdy-photo{
+  width: min(100%, 600px) !important;
+  max-width: 600px !important;
+  height: auto !important;
+}
+
+
+/* ===== Index-only Howdy Section (scoped) ===== */
+.index-howdy{
+  padding-block: clamp(36px, 8vw, 96px);
+}
+.index-howdy .container{
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr; /* text | image */
+  align-items: center;
+  column-gap: clamp(24px, 3vw, 56px);
+}
+.index-howdy__left{ order: 1; }
+.index-howdy__right{ order: 2; }
+
+/* Typography inside (kept simple, independent from other howdy styles) */
+.index-howdy__title{
+  font-size: clamp(42px, 8vw, 112px);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  color: #6F5A3E;
+  
+}
+.index-howdy__lede{
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  color: #6F5A3E;
+}
+.index-howdy__copy{
+  margin: 0 0 24px 0;
+  color: color-mix(in srgb, var(--muted) 85%, transparent);
+}
+.index-howdy__btn{
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 28px;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Image sizing (original/neutral) */
+.index-howdy__photo{
+  width: min(100%, 600px);
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin-left: auto; /* keep image aligned to the right column's edge */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px){
+  .index-howdy .container{
+    display: block;
+  }
+  .index-howdy__photo{
+    width: 100%;
+    max-width: none;
+    margin: 18px 0 0 0;
+  }
+}
+
+
+/* --- Index Howdy: use Inter for body text (match LOVE DETAILS) --- */
+.index-howdy, 
+.index-howdy p, 
+.index-howdy a, 
+.index-howdy li, 
+.index-howdy small, 
+.index-howdy .index-howdy__lede, 
+.index-howdy .index-howdy__copy {
+  font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* --- Make index-howdy button behave like Rodeo .btn-pill --- */
+.index-howdy__btn{
+  background: transparent;
+  border: 2px solid #7A552E;
+  color: #7A552E;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-size: .9rem;
+  transition: all .2s ease;
+}
+.index-howdy__btn:hover{
+  background: #7A552E;
+  color: #fff;
+}
+.index-howdy__btn:focus-visible{
+  outline: 3px solid color-mix(in srgb, #7A552E 30%, white);
+  outline-offset: 3px;
+}
+
+/* Match the Rodeo split paragraph typography */
+.index-howdy__copy{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; /* same family */
+  font-size: 1rem;        /* same default size */
+  line-height: 1.6;       /* comfortable body copy */
+  letter-spacing: normal; /* avoid headline spacing */
+  font-weight: 400;       /* normal body weight */
+  text-transform: none;
+}
+#howdy-hero{
+  background: linear-gradient(180deg, var(--sage) 0%, var(--cream) 45%, var(--peach) 100%);
+}
+
+
+
+
+
+
+
+/* === SHOP PAGE ONLY (scoped styles) === */
+.shop-page .shop-hero{ 
+  position: relative; 
+  padding: 72px 0 36px; 
+  border-bottom: 1px solid var(--line); 
+  overflow: hidden;
+  isolation:isolate;
+}
+
+/* Background image behind the title (replace path if needed) */
+.shop-page .shop-hero::before{ 
+  content:""; position:absolute; inset:0; z-index:-2;
+  background-image: url('assets/img/shop-hero.jpg');
+  background-size: cover; background-position: center;
+  filter: saturate(1.05);
+}
+
+/* Soft overlay for readability with #FFA1AD tint */
+.shop-page .shop-hero::after{ 
+  content:""; position:absolute; inset:0; z-index:-1;
+  /* top uses the requested #FFA1AD (pink) fade */
+  background: linear-gradient(180deg, rgba(255,161,173,0.38) 0%, rgba(255,255,255,0.88) 70%);
+}
+
+.shop-page .shop-title{ 
+  font-family: "Bodoni Moda", serif; text-transform: uppercase; letter-spacing: .06em;
+  font-size: clamp(1.8rem, 1rem + 4vw, 3.2rem); color: #7A552E; margin: 0 0 12px; text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,.6);
+}
+.shop-page .shop-sub{ text-align:center; color: var(--muted); margin: 0 0 18px; font-size: .95rem; }
+
+.shop-page .shop-filters{ display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: center; }
+.shop-page .chip{
+  display: inline-block; border: 2px solid #7A552E; color: #7A552E; background: rgba(255,255,255,.75);
+  backdrop-filter: blur(3px);
+  border-radius: 999px; padding: .6rem 1.1rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  font-size: .78rem; cursor: pointer; text-decoration: none; transition: background .15s ease, color .15s ease;
+}
+.shop-page .chip.is-active{ background: #7A552E; color:#fff; }
+
+/* grid & cards */
+.shop-page .shop-grid{ padding: 22px 0 64px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.shop-page .product{
+  background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  display: grid; grid-template-rows: auto 1fr; transition: transform .12s ease, box-shadow .12s ease;
+}
+.shop-page .product:hover{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+
+.shop-page .thumb{ display:block; aspect-ratio: 4/5; background:#fff; position: relative; }
+.shop-page .thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
+
+.shop-page .meta{ padding: 12px; display: grid; gap: 6px; }
+.shop-page .name{ margin:0; font-size: 1rem; line-height:1.3; font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+.shop-page .price{ color: var(--muted); font-weight: 600; }
+.shop-page .btn-small{ justify-self: start; }
+
+/* sold out */
+.shop-page .product.is-soldout .btn-small[disabled]{ cursor: not-allowed; opacity: .6; }
+.shop-page .badge-soldout{
+  position: absolute; top: 10px; left: -40px; transform: rotate(-15deg);
+  background: #333; color:#fff; padding: .35rem 1.1rem; font-size: .78rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.12); pointer-events: none; opacity: 0.92;
+}
+.shop-page .product.is-soldout .price{ color: #9a9a9a; }
+
+/* responsive */
+@media (max-width: 980px){ .shop-page .shop-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px){ .shop-page .shop-grid{ grid-template-columns: 1fr; } }
+
+/* More space under the centered site title */
+.site-header .nav{
+  padding: 20px 0 50px; /* top | sides | bottom (increase bottom) */
+}
+
+/* Optional: only do it on the shop page */
+/* .shop-page .site-header .nav{ padding-bottom: 36px; } */
+
+/* Keep mobile tidy */
+@media (max-width: 640px){
+  .site-header .nav{ padding-bottom: 22px; }
+}
+/* Bigger hero so the background image is more visible */
+.shop-page .shop-hero{
+  display: grid;
+  align-items: end;                       /* keeps title near bottom; use 'center' to center */
+}
+
+/* Show a nicer slice of the image */
+.shop-page .shop-hero::before{
+  background-size: cover;
+  background-position: center 30%;       /* move the crop up a bit; tweak as you like */
+  filter: saturate(1.08) contrast(1.06); /* optional: make it pop slightly */
+}
+
+/* (Optional) Parallax feel — remove if you don’t want it */
+@media (min-width: 900px){
+  .shop-page .shop-hero::before{ background-attachment: fixed; }
+}
+
+/* === SHOP — Sidebar layout like the reference === */
+.shop-page .catalog{
+  display:grid;
+  grid-template-columns: 240px 1fr;   /* LEFT: filters  RIGHT: gallery */
+  gap: clamp(18px, 3vw, 36px);
+  padding: clamp(20px, 4vw, 36px) 0 72px;
+  position:relative;
+}
+
+/* Soft two-tone backdrop similar to the screenshot */
+.shop-page .catalog::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--cream) 94%, white 6%) 0 240px,                 /* left column */
+      color-mix(in srgb, #FFEAA8 72%, var(--cream) 28%) 240px 100%            /* right field */
+    );
+  z-index:-1;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Left sidebar (vertical pills) */
+.shop-page .catalog-nav{
+  position: sticky;
+  top: 90px;                 /* sits below your sticky header */
+  align-self: start;
+  padding-top: 4px;
+}
+.shop-page .catalog-nav .pill{
+  appearance:none;
+  display:block;
+  width: 100%;
+  text-align:left;
+  background: transparent;
+  border:none;
+  padding: 12px 0;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #6c5f57;
+  cursor: pointer;
+}
+.shop-page .catalog-nav .pill.is-active{
+  color: #2c251f;
+}
+.shop-page .catalog-nav .pill + .pill{ margin-top: 14px; }
+
+/* Right: roomy, editorial grid (two tall panels like the pic) */
+.shop-page .catalog-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;      /* two big columns */
+  gap: clamp(18px, 2vw, 28px);
+}
+
+/* Make cards feel like large, borderless image panels */
+.shop-page .catalog-grid .product{
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.shop-page .catalog-grid .thumb{
+  aspect-ratio: 3 / 4;     /* taller like the screenshot */
+  border: none;
+}
+.shop-page .catalog-grid .thumb img{
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Minimal meta below images */
+.shop-page .catalog-grid .meta{
+  padding: 10px 0 18px;
+  gap: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.shop-page .catalog-grid .name{
+  font-weight: 700;
+}
+.shop-page .catalog-grid .price{
+  color: var(--muted);
+}
+
+/* Hide the old horizontal chips bar on wide screens (we moved filters left) */
+@media (min-width: 901px){
+  .shop-page .shop-filters{ display:none; }
+}
+
+/* Responsive: stack to one column; keep sidebar on top */
+@media (max-width: 900px){
+  .shop-page .catalog{
+    grid-template-columns: 1fr;
+  }
+  .shop-page .catalog::before{
+    background: color-mix(in srgb, #FFEAA8 40%, var(--cream) 60%);
+  }
+  .shop-page .catalog-nav{
+    position: static;
+    display:flex;
+    gap: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .shop-page .catalog-nav .pill{
+    width:auto;
+    padding: 12px 6px;
+  }
+  .shop-page .catalog-grid{
+    grid-template-columns: 1fr;
+  }
+}
+/* --- SHOP: fix the weird band/spacing under header --- */
+
+/* 1) Nuke the OLD horizontal filters on the shop page everywhere */
+.shop-page .shop-filters{ display:none !important; }
+
+/* 2) Tighten the gap below the subnav and align the new section */
+.subnav-main{ margin-bottom: 0; }
+.shop-page .catalog{
+  margin-top: clamp(8px, 1.5vw, 20px);   /* gentle breathing room */
+  position: relative;
+  z-index: 0;                            /* sit under the sticky header’s shadow */
+  scroll-margin-top: 100px;              /* anchors land below sticky header */
+}
+
+/* If your header height differs, tweak this value */
+:root{ --header-sticky-height: 90px; }
+.shop-page .catalog-nav{ top: calc(var(--header-sticky-height) + 16px); }
+
+/* 3) Keep the background panel confined to the section so it doesn’t look like it’s glued to the header */
+.shop-page .catalog::before{
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--cream) 94%, white 6%) 0 240px,
+      color-mix(in srgb, #FFEAA8 72%, var(--cream) 28%) 240px 100%
+    );
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* 4) Optional: if you don’t want a hero block, hide it cleanly */
+.shop-page .shop-hero{ display:none; }
+/* Restore the Shop hero title */
+.shop-page .shop-hero { 
+  display: block !important;
+  margin: clamp(8px, 1.5vw, 20px) 0 0;  /* small gap under subnav */
+}
+
+/* Keep the catalog section breathing room consistent */
+.shop-page .catalog { 
+  margin-top: clamp(8px, 1.5vw, 20px);
+}
+/* ===== SHOP PAGE FIXES (compact title + clean alignment) ===== */
+
+/* 1) Make the hero a small, clean title band (no gradient, no art) */
+.shop-page .shop-hero{
+  display:block !important;
+  padding: 14px 0 10px;              /* short band */
+  margin: 8px 0 0;                   /* small gap below subnav */
+  background: transparent !important;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.shop-page .shop-hero::before,
+.shop-page .shop-hero::after{
+  content: none !important;          /* kill old gradient overlays */
+}
+.shop-page .shop-hero .page-title{
+  margin: 0;                         /* remove any inherited negative margins */
+  font-family: "Bodoni Moda", serif;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: clamp(28px, 2.4vw, 44px);
+  color: var(--ink, #2c251f);
+}
+
+/* 2) Align the catalog panel right under the hero and remove the thick top band */
+.shop-page .catalog{
+  margin-top: 10px;                  /* tight gap after "THE SHOP" */
+  padding: 18px 0 72px;              /* reduce top padding so the yellow panel isn't huge */
+  grid-template-columns: 240px 1fr;  /* keep: left filters | right gallery */
+}
+
+/* Keep the two-tone background but start it flush with the section */
+.shop-page .catalog::before{
+  inset: 0;                          /* already correct; ensure full cover */
+  /* colors already defined earlier—no changes; this just keeps the divider look */
+}
+
+/* 3) Sidebar sticky offset: match your header height so it doesn't sit too high */
+:root{ --header-sticky-height: 90px; } /* tweak if your header is taller/shorter */
+.shop-page .catalog-nav{ top: calc(var(--header-sticky-height) + 12px); }
+
+/* 4) (Optional) If any old "shop-hero is hidden" rule exists, override it here */
+.shop-page .shop-hero{ display:block !important; }
+
+/* === SHOP: full-bleed banner hero like your reference === */
+.shop-page .shop-hero-banner{
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 28vw, 420px);       /* responsive height like the screenshot */
+  margin: 8px 0 0;                         /* small gap under subnav */
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  /* background image */
+  background-image: url("assets/img/shop-hero.jpg"); /* <-- change if needed */
+  background-size: cover;
+  background-position: center 45%;         /* similar framing to the reference */
+  background-repeat: no-repeat;
+}
+
+/* subtle overlay so the white text pops on any photo */
+.shop-page .shop-hero-banner::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.12));
+  pointer-events: none;
+}
+
+.shop-page .shop-hero-banner__inner{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-page .shop-hero-banner__title{
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: clamp(36px, 6vw, 92px);       /* big, like THE TRADING POST */
+  line-height: 1;
+  color: #fff9f0;                           /* warm white */
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);   /* crisp on busy photos */
+}
+
+/* keep the catalog section neatly below the banner */
+.shop-page .catalog{
+  margin-top: 14px;
+}
+/* Shop hero banner image */
+.shop-page .shop-hero-banner{
+  background-image: url("assets/img/ban.jpg"); /* ← your image */
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+}
+
+
+
+/* === SHOP PAGE — Professional polish v2 === */
+.shop-page .shop-hero-banner{
+  position: relative;
+  background:
+    radial-gradient(1200px 520px at 50% 10%, rgba(255,255,255,.25), transparent 60%),
+    radial-gradient(420px 180px at 18% 30%, rgba(183,131,95,.22), transparent 60%),
+    radial-gradient(420px 180px at 82% 68%, rgba(183,131,95,.22), transparent 60%),
+    var(--peach);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.shop-hero-banner__inner{ padding: 48px 0 52px; text-align:center; }
+.shop-hero-banner__title{
+  font-family:"Bodoni Moda", serif;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size: clamp(2rem, 1.2rem + 4vw, 4rem);
+  color:#7A552E;
+  margin:0;
+}
+
+/* Catalog layout */
+.catalog{ padding: 28px 0 56px; }
+.catalog-nav{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+.pill{
+  display:inline-block;
+  border:2px solid #7A552E;
+  color:#7A552E;
+  background:#fff;
+  border-radius:999px;
+  padding:.6rem 1.1rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.84rem;
+  cursor:pointer;
+  transition:transform .15s ease, background .15s ease, color .15s ease;
+}
+.pill:hover{ transform:translateY(-1px); }
+.pill.is-active{ background:#7A552E; color:#fff; }
+
+/* Product grid & cards */
+.catalog-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(220px,1fr));
+  gap: 22px;
+}
+.product{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 8px 20px rgba(0,0,0,.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.product:hover{
+  transform: translateY(-2px);
+  box-shadow:0 14px 30px rgba(0,0,0,.10);
+}
+.product .thumb{
+  display:block;
+  aspect-ratio: 4 / 3;
+  overflow:hidden;
+  background:#f7f4ea;
+}
+.product .thumb img{
+  width:100%; height:100%; object-fit:cover;
+}
+.product .meta{
+  padding: 12px 14px 14px;
+  display:grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "name price" "actions actions";
+  align-items:center;
+  gap:8px;
+}
+.product .name{ grid-area:name; font-weight:800; letter-spacing:.02em; }
+.product .price{ grid-area:price; color:var(--muted); font-weight:700; }
+.product .actions{ grid-area:actions; margin-top:2px; }
+.btn-buy{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5em;
+  border:2px solid #7A552E;
+  background:linear-gradient(180deg,#FFFFFF 0%, #F8EED8 100%);
+  color:#7A552E;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:.6rem 1rem;
+  border-radius:999px;
+  cursor:pointer;
+  transition: transform .15s ease;
+}
+.btn-buy:hover{ transform: translateY(-1px); }
+
+/* Responsive */
+@media (max-width: 980px){
+  .catalog-grid{ grid-template-columns: repeat(2, minmax(200px,1fr)); }
+}
+@media (max-width: 600px){
+  .catalog-grid{ grid-template-columns: 1fr; }
+}
+
+
+/* === Shop controls & badges === */
+.catalog-controls{ display:flex; align-items:center; justify-content:flex-end; gap:12px; margin: 4px 0 18px; }
+.sort-wrap select{
+  appearance:none;
+  border:1px solid var(--line);
+  background:#fff;
+  padding:.55rem .9rem;
+  border-radius:10px;
+  font-weight:600;
+}
+.stock-toggle{ display:inline-flex; align-items:center; gap:.5em; font-weight:700; letter-spacing:.02em; }
+.stock-toggle input{ width:1.1em; height:1.1em; }
+
+.product .thumb{ position:relative; }
+.badge{
+  position:absolute;
+  top:10px; left:10px;
+  background:#7A552E;
+  color:#fff;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.66rem;
+  padding:.32rem .5rem;
+  border-radius:999px;
+  box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+
+/* === Product page minimal styles === */
+.product-hero{ display:grid; grid-template-columns: 1.2fr 1fr; gap:28px; padding:34px 0 54px; }
+.p-media img{ width:100%; height:auto; border-radius:16px; border:1px solid var(--line); box-shadow:0 10px 24px rgba(0,0,0,.06); }
+.p-title{ font-family:"Bodoni Moda", serif; letter-spacing:.02em; font-weight:900; font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.4rem); margin:.1rem 0 .2rem; }
+.p-price{ font-size:1.2rem; font-weight:800; color:#7A552E; margin-bottom:10px; }
+.p-desc{ color:#6b6b6b; line-height:1.5; margin-bottom:14px; }
+.p-meta{ margin-top:12px; color:#686868; font-weight:600; display:grid; gap:6px; }
+.p-back{ display:inline-block; margin-top:18px; text-decoration:none; font-weight:700; }
+@media (max-width: 900px){ .product-hero{ grid-template-columns: 1fr; } }
+
+
+/* === Quick Fix: Shop layout & header title overlap === */
+/* Force header title to flow normally everywhere */
+header .site-title{
+  position: static !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
+
+/* Shop: use a two-column grid (sidebar + content) */
+.catalog.container{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: start;
+  column-gap: 24px;
+}
+
+/* Place nav (pills) in column 1, controls + grid in column 2 */
+.catalog .catalog-nav{ grid-column: 1; }
+.catalog .catalog-controls{ grid-column: 2; justify-self: end; }
+.catalog #shop-grid{ grid-column: 2; }
+
+/* Ensure hero doesn't visually cover content; keep it compact */
+.shop-hero-banner{ background-attachment: local; }
+.shop-hero-banner__inner{ padding: 32px 0; }
+
+/* Safety: product hero spacing below sticky header */
+.product-page .product-hero{ padding-top: 24px; }
+
+
+/* === Single Featured Book layout === */
+.featured{ padding: 28px 0 60px; }
+.featured-card{
+  display:grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 28px;
+  align-items: center;
+  background: #fff;
+  border:1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.06);
+}
+.featured-media{ position:relative; overflow:hidden; border-radius: 16px; background:#f7f4ea; }
+.featured-media img{ width:100%; height:auto; display:block; border-radius: 16px; }
+.featured-media .badge{
+  position:absolute; top:12px; left:12px;
+  background:#7A552E; color:#fff; font-weight:800; font-size:.72rem;
+  letter-spacing:.12em; text-transform:uppercase; padding:.34rem .6rem; border-radius:999px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+.featured-info{ padding: 8px 6px; }
+.featured-title{
+  font-family:"Bodoni Moda", serif; font-weight:900;
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
+  letter-spacing:.02em; margin:.2rem 0 .4rem; color:#422b16;
+}
+.featured-sub{ color:#6a665e; margin:.2rem 0 1rem; line-height:1.55; }
+.featured-price{ color:#7A552E; font-weight:900; font-size:1.35rem; margin-bottom:.6rem; }
+.featured-meta{ list-style:none; padding:0; margin:12px 0 0; display:grid; gap:6px; color:#686868; font-weight:600; }
+@media (max-width: 980px){
+  .featured-card{ grid-template-columns: 1fr; padding: 14px; }
+}

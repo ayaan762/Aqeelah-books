@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+
+  <title>AQEELAH BOOKS</title>
+  <meta name="description" content="Artisanal books, stationery, and gifts." />
+
+  <!-- Keep your global stylesheet for header/footer, but we won't reuse its classes for the mission section -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- NEW, SCOPED STYLES (no reuse of old classes) -->
+  <style>
+    .mission-v2 {
+      /* local palette to avoid coupling */
+      --mv2-ink:#2c251f;
+      --mv2-muted:#6c5f57;
+      --mv2-accent:#7A552E;
+      --mv2-peach:#F1C9AC;
+      --mv2-paper:#fffdf7;
+
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(1200px 520px at 12% 12%, rgba(255,255,255,.30), transparent 60%),
+        radial-gradient(420px 200px at 80% 72%, rgba(241,201,172,.28), transparent 60%),
+        #fbf5e6;
+      border-top: 1px solid #e9e0cf;
+      border-bottom: 1px solid #e9e0cf;
+      padding: clamp(18px, 2vw, 28px) 0 clamp(28px, 4vw, 56px);
+    }
+    .mission-v2__wrap {
+      width: min(1100px, 92%);
+      margin-inline: auto;
+    }
+    .mission-v2__grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr; /* image | text */
+      align-items: center;
+      column-gap: clamp(18px, 3vw, 52px);
+    }
+    .mission-v2__figure {
+      position: relative;
+    }
+    .mission-v2__img {
+      display:block;
+      width:min(100%, 680px);
+      max-width:680px;
+      height:auto;
+      border-radius: 10px;
+      border:1px solid #e9e0cf;
+      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    }
+    .mission-v2__stamp {
+      position:absolute;
+      right: -10px;
+      top: -10px;
+      border: 2px dashed var(--mv2-accent);
+      color: var(--mv2-accent);
+      background: rgba(255, 245, 230, .65);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font: 700 .78rem/1 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      transform: rotate(-12deg);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .mission-v2__text {
+      max-width: 60ch;
+      color: var(--mv2-ink);
+      position: relative;
+    }
+    .mission-v2__eyebrow {
+      margin: 0 0 .25rem 0;
+      color: var(--mv2-muted);
+      font: 800 .9rem/1.3 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    .mission-v2__title {
+      margin: .2rem 0 .6rem 0;
+      font-family: "Bodoni Moda", serif;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mv2-accent);
+      font-size: clamp(1.8rem, 1rem + 6vw, 4.6rem);
+      line-height: 1.02;
+    }
+    .mission-v2__lede {
+      margin: 0 0 .6rem 0;
+      color: var(--mv2-muted);
+      font: 700 1rem/1.5 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    .mission-v2__card {
+      margin-top: .6rem;
+      background: var(--mv2-paper);
+      border: 1px solid #d6caa9;
+      border-radius: 10px;
+      box-shadow: 0 2px 0 rgba(0,0,0,.04);
+      padding: clamp(14px, 2vw, 20px) clamp(14px, 2vw, 22px);
+    }
+    .mission-v2__copy {
+      margin: 0 0 .9rem 0;
+      color: var(--mv2-ink);
+      font: 400 1.02rem/1.75 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    .mission-v2__cta {
+      display: inline-block;
+      background: var(--mv2-peach);
+      border: 2px solid var(--mv2-accent);
+      color: var(--mv2-accent);
+      padding: .9rem 1.35rem;
+      border-radius: 999px;
+      font: 800 .92rem/1 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform .15s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,.10);
+    }
+    .mission-v2__cta:hover { transform: translateY(-1px); }
+
+    /* Responsive: stack with image first (left → top) */
+    @media (max-width: 940px) {
+      .mission-v2__grid { grid-template-columns: 1fr; }
+      .mission-v2__text { max-width: 62ch; margin-top: 16px; }
+      .mission-v2__stamp { right: 8px; top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announce">FREE SHIPPING ON ORDERS OVER $100 — HANDMADE WITH LOVE</div>
+
+  <header class="site-header">
+    <div class="container nav nav-top">
+      <a class="top-link" href="#search">SEARCH</a>
+      <div class="brand-wrap">
+        <a class="logo" href="index.html"><img src="assets/img/L1.png" class="logo-img"><span class="sr">AQEELAH BOOKS</span></a>
+        <a class="site-title" href="index.html" aria-label="Go to homepage">AQEELAH BOOKS</a>
+      </div>
+      <nav class="top-right">
+        <a class="top-link" href="#login">LOGIN</a>
+        <a class="top-link cart" href="cart.html">CART (0)</a>
+      </nav>
+    </div>
+
+    <nav class="subnav container subnav-main">
+      <a href="shop.html">SHOP</a>
+      <a href="authors.html">OUR STORY</a>
+      <a href="#contact">CONTACT</a>
+      <a href="mission.html">MISSION</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- NEW MISSION SECTION (image LEFT, text RIGHT) -->
+    <section class="mission-v2" aria-labelledby="mission-v2-title">
+      <div class="mission-v2__wrap">
+        <div class="mission-v2__grid">
+          <figure class="mission-v2__figure">
+            <!-- Replace with your mission image -->
+            <img src="assets/img/b3.jpg" alt="Aqeelah Books—mission imagery" class="mission-v2__img">
+            <figcaption class="sr">Our mission visual</figcaption>
+            <div class="mission-v2__stamp">EST. 2025</div>
+          </figure>
+
+          <div class="mission-v2__text">
+            <p class="mission-v2__eyebrow">In the Name of the Most High</p>
+            <h1 id="mission-v2-title" class="mission-v2__title">Our Mission</h1>
+            <p class="mission-v2__lede">Planting seeds of love for Allah and the Ahl al-Bayt—page by page.</p>
+
+            <div class="mission-v2__card">
+              <p class="mission-v2__copy">
+                At Aqeelah Books, we aim to plant seeds of love for Allah and His beloved Ahl al-Bayt.
+                By nurturing these seeds, we hope to grow strong roots of faith, wisdom, and kindness.
+                Through our crafted children’s books, we cultivate a sense of wonder and curiosity.
+              </p>
+              <p class="mission-v2__copy">
+                Each page is a garden of words, blooming with the love of those who have given everything in the way of their Lord.
+                We pray these words inspire our young readers to live a life of purpose and devotion to the Blessed Fourteen.
+              </p>
+            </div>
+
+            <a class="mission-v2__cta" href="authors.html">Meet the Authors</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-split">
+    <div class="container footer-grid">
+      <div class="f-col">
+        <h4 class="f-head">CONNECT.</h4>
+        <ul class="f-list">
+          <li><a href="https://www.instagram.com/aqeelahpublishing/" target="_blank" rel="noopener">INSTAGRAM</a></li>
+          <li><a href="#" target="_blank" rel="noopener">FACEBOOK</a></li>
+          <li><a href="#" target="_blank" rel="noopener">PINTEREST</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 class="f-head">INFO.</h4>
+        <ul class="f-list">
+          <li><a href="shop.html">SERVICES</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mission.html">MISSION</a></li>
+          <li><a href="authors.html">AUTHORS</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 class="f-head">SHOP.</h4>
+        <ul class="f-list">
+          <li><a href="shop.html">STATIONERY</a></li>
+          <li><a href="shop.html">BOOKS</a></li>
+        </ul>
+      </div>
+
+      <div class="f-badge" aria-hidden="true">
+        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="badge-svg">
+          <defs><filter id="bdgShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity=".25"/></filter></defs>
+          <path d="M110,6 l24,20 h32 l6,24 l24,24 l-24,24 l6,24 h-32 l-24,20 l-24,-20 h-32 l-6,-24 l-24,-24 l24,-24 l-6,-24 h32z"
+                fill="#F4B9A8" stroke="#7A552E" stroke-width="4" filter="url(#bdgShadow)"/>
+          <g transform="translate(110,110)" stroke="#6D4E2F" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M0,40 C-2,10 -8,-18 0,-40 C8,-18 2,10 0,40z"/>
+            <path d="M0,18 C-10,0 -26,-6 -40,-2 C-18,2 -9,14 0,24" />
+            <path d="M0,18 C10,0 26,-6 40,-2 C18,2 9,14 0,24" />
+          </g>
+          <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6D4E2F" text-anchor="middle">
+            <text x="110" y="56">A Q E E L A H</text>
+            <text x="110" y="74">B O O K S</text>
+            <text x="110" y="190">E S T.&nbsp;2 0 2 5</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="container bar-inner">
+        COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span> &nbsp;|&nbsp; <a class="site-credit" href="#" target="_blank" rel="noopener">Ayaan</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+  /* --- Place image on the RIGHT (desktop), keep text above image on mobile) --- */
+  .mission-v2__grid {
+    grid-template-columns: .95fr 1.05fr; /* text | image */
+  }
+  .mission-v2__text { order: 1; }
+  .mission-v2__figure { order: 2; }
+
+  /* Mobile: stack naturally (text first, image second) */
+  @media (max-width: 940px) {
+    .mission-v2__grid { grid-template-columns: 1fr; }
+    .mission-v2__text { order: 1; }
+    .mission-v2__figure { order: 2; }
+  }
+</style>

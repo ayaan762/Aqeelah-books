@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Cart — AQEELAH BOOKS</title>
+<meta content="Your cart at AQEELAH BOOKS" name="description"/>
+<link href="styles.css" rel="stylesheet"/>
+<link href="favicon.ico" rel="icon"/><link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="favicon-16.png" rel="icon" sizes="16x16" type="image/png"/><link href="favicon-180.png" rel="apple-touch-icon" sizes="180x180"/><link href="favicon-192.png" rel="icon" sizes="192x192" type="image/png"/><link href="favicon-512.png" rel="icon" sizes="512x512" type="image/png"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&amp;family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/></head>
+<body class="cart-body"><div class="announce">FREE SHIPPING ON ORDERS OVER $100 — HANDMADE WITH LOVE</div>
+<header class="site-header">
+<!-- TOP BAR -->
+<div class="container nav nav-top">
+<a class="top-link" href="#search">SEARCH</a>
+<!-- keep your existing logo + title -->
+<div class="brand-wrap">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/img/L1.png"/><span class="sr">AQEELAH BOOKS</span></a>
+<a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
+</div>
+<nav class="top-right">
+<a class="top-link" href="#login">LOGIN</a>
+<a class="top-link cart" href="cart.html">CART (0)</a>
+</nav>
+</div>
+<!-- THIN-LINED MAIN NAV (only these 4) -->
+<nav class="subnav container subnav-main">
+<a href="shop.html">SHOP</a>
+<a href="authors.html">OUR STORY</a>
+<a href="#contact">CONTACT</a>
+<a href="mission.html">MISSION</a>
+</nav>
+</header>
+<main class="container">
+<nav class="crumbs"><a href="index.html">Home</a> / <span>Cart</span></nav>
+<section class="cart-page">
+<div class="cart-table-wrap">
+<table aria-describedby="cart-heading" class="cart-table">
+<thead><tr><th scope="col">Item</th><th scope="col">Price</th><th scope="col">Qty</th><th scope="col">Total</th><th class="sr" scope="col">Actions</th></tr></thead>
+<tbody id="cart-page-items"></tbody>
+</table>
+<p class="muted" id="cart-empty" style="display:none">Your cart is empty.</p>
+</div>
+<aside class="cart-summary">
+<h2 id="cart-heading">Order Summary</h2>
+<div class="sum-row"><span>Subtotal</span><strong id="sum-subtotal">$0.00</strong></div>
+<div class="sum-note muted">Shipping &amp; taxes calculated at checkout.</div>
+<button class="btn" disabled="" id="sum-checkout">Checkout</button>
+<button class="btn-outline" id="sum-continue" onclick="window.location='index.html#shop'">Continue Shopping</button>
+</aside>
+</section>
+</main>
+<footer class="footer-split">
+<div class="container footer-grid">
+<div class="f-col">
+<h4 class="f-head">CONNECT.</h4>
+<ul class="f-list">
+<li><a href="https://www.instagram.com/aqeelahpublishing/" rel="noopener" target="_blank">INSTAGRAM</a></li>
+<li><a href="#" rel="noopener" target="_blank">FACEBOOK</a></li>
+<li><a href="#" rel="noopener" target="_blank">PINTEREST</a></li>
+</ul>
+</div>
+<div class="f-col">
+<h4 class="f-head">INFO.</h4>
+<ul class="f-list"><li><a href="shop.html">SERVICES</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="mission.html">MISSION</a></li>
+<li><a href="authors.html">AUTHORS</a></li></ul>
+</div>
+<div class="f-col">
+<h4 class="f-head">SHOP.</h4>
+<ul class="f-list">
+<li><a href="shop.html">STATIONERY</a></li>
+<li><a href="shop.html">BOOKS</a></li>
+</ul>
+</div>
+<div aria-hidden="true" class="f-badge">
+<!-- Decorative badge (original artwork) -->
+<svg class="badge-svg" viewbox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter height="140%" id="bdgShadow" width="140%" x="-20%" y="-20%">
+<fedropshadow dx="0" dy="2" flood-opacity=".25" stddeviation="2.5"></fedropshadow>
+</filter>
+</defs>
+<path d="M110,6 l24,20 h32 l6,24 l24,24 l-24,24 l6,24 h-32 l-24,20 l-24,-20 h-32 l-6,-24 l-24,-24 l24,-24 l-6,-24 h32z" fill="#F4B9A8" filter="url(#bdgShadow)" stroke="#7A552E" stroke-width="4"></path>
+<g fill="none" stroke="#6D4E2F" stroke-linecap="round" stroke-width="3" transform="translate(110,110)">
+<path d="M0,40 C-2,10 -8,-18 0,-40 C8,-18 2,10 0,40z"></path>
+<path d="M0,18 C-10,0 -26,-6 -40,-2 C-18,2 -9,14 0,24"></path>
+<path d="M0,18 C10,0 26,-6 40,-2 C18,2 9,14 0,24"></path>
+</g>
+<g fill="#6D4E2F" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">
+<text x="110" y="56">A Q E E L A H</text>
+<text x="110" y="74">B O O K S</text>
+<text x="110" y="190">E S T. 2 0 2 5</text>
+</g>
+</svg>
+</div>
+</div>
+<div class="footer-bar">
+<div class="container bar-inner">
+      COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span>  |  <a class="site-credit" href="#" rel="noopener" target="_blank">Ayaan</a>
+</div>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

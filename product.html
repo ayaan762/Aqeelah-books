@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product — AQEELAH BOOKS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="product-page">
+  <header class="header">
+    <div class="container header-inner">
+      <a class="site-title" href="index.html" aria-label="Go to homepage">AQEELAH BOOKS</a>
+      <nav class="subnav container subnav-main">
+        <a href="shop.html">SHOP</a>
+        <a href="authors.html">OUR STORY</a>
+        <a href="#contact">CONTACT</a>
+        <a href="mission.html">MISSION</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="product-hero container">
+      <div class="p-media"><img id="p-img" alt=""></div>
+      <div class="p-info">
+        <h1 id="p-name" class="p-title"></h1>
+        <div id="p-price" class="p-price"></div>
+        <p id="p-desc" class="p-desc">A carefully crafted title from AQEELAH BOOKS.</p>
+        <button id="p-add" class="btn-buy add-to-cart">Add to Cart</button>
+        <div class="p-meta">
+          <div>Ships in 3–5 business days</div>
+          <div>Free returns within 30 days</div>
+        </div>
+        <a href="shop.html" class="p-back">← Back to Shop</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Populate from URL params: ?name=...&price=...&img=...&id=...
+    (function(){
+      const qp = new URL(location).searchParams;
+      const name = qp.get('name') || 'AQEELAH BOOKS — Title';
+      const price = qp.get('price') || '';
+      const img = qp.get('img') || 'assets/img/b1.jpg';
+      const id = qp.get('id') || 'prod-1';
+
+      const el = (id)=>document.getElementById(id);
+      el('p-name').textContent = name;
+      el('p-price').textContent = price ? ('$' + parseFloat(price).toFixed(2)) : 'Coming Soon';
+      el('p-img').src = img;
+      const add = el('p-add');
+      if (price){
+        add.dataset.id = id;
+        add.dataset.name = name;
+        add.dataset.price = parseFloat(price);
+        add.dataset.img = img;
+      } else {
+        add.disabled = true;
+        add.textContent = 'Coming Soon';
+      }
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
