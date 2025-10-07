@@ -1563,3 +1563,72 @@ header .site-title{
 @media (max-width: 980px){
   .featured-card{ grid-template-columns: 1fr; padding: 14px; }
 }
+
+
+/* === GPT PATCH: Title & Heading Typeface + Wider Letter-Spacing === */
+/* Optional: if you have Perandory SemiCondensed font files, place them in /assets/fonts and
+   uncomment this @font-face to actually use them. Otherwise, we fall back to Bodoni. */
+/*
+@font-face{
+  font-family:"Perandory SemiCondensed";
+  src:url("assets/fonts/Perandory-SemiCondensed.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+:root{
+  --title-font-stack: "Perandory SemiCondensed","Bodoni Moda",ui-serif,Georgia,"Times New Roman",serif;
+}
+
+/* Site title (center wordmark) */
+html body .site-title{
+  font-family: var(--title-font-stack) !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase;
+}
+
+/* Global headings */
+html body h1,
+html body h2,
+html body h3,
+html body h4{
+  font-family: var(--title-font-stack) !important;
+  letter-spacing: .14em !important;
+  text-transform: uppercase;
+}
+
+/* Hero headings */
+html body .hero h1,
+html body .hero h2{
+  font-family: var(--title-font-stack) !important;
+  letter-spacing: .14em !important;
+}
+
+/* Marquee big title (if used) */
+html body .marquee-title{
+  font-family: var(--title-font-stack) !important;
+  letter-spacing: .16em !important;
+}
+
+/* Shop hero title */
+html body .shop-hero-banner__title{
+  font-family: var(--title-font-stack) !important;
+  letter-spacing: .16em !important;
+}
+/* === END PATCH === */
+
+
+
+/* === GPT PATCH: Embed Perandory SemiCondensed font (OTF) === */
+@font-face{
+  font-family: "Perandory SemiCondensed";
+  src:
+    local("Perandory SemiCondensed"),
+    url("assets/fonts/Perandory-SemiCondensed.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* === END PATCH === */
