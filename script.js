@@ -36,7 +36,23 @@ document.addEventListener('click',e=>{
   else return;
   save(); bumpHeader(); renderCart();
 });
-const btn=$('#sum-checkout'); if(btn){ btn.addEventListener('click',()=>alert('Checkout coming soon — Stripe/Shopify next.')); }
+const btn = $('#sum-checkout');
+if (btn) {
+  btn.addEventListener('click', () => {
+    const SHOPIFY_DOMAIN = 'v8nzdf-vs.myshopify.com';
+    const VARIANT_MAP = { 'bk-abbas': '52714239656302' };
+    const items = Array.isArray(cart) ? cart : [];
+    if (!items.length) { alert('Cart is empty.'); return; }
+    const lines = items.map(i => {
+      const vid = VARIANT_MAP[i.id];
+      if (!vid) throw new Error(`No Shopify variant mapping for "${i.id}"`);
+      const q = Math.max(1, parseInt(i.qty || 1, 10));
+      return `${vid}:${q}`;
+    });
+    const url = `https://v8nzdf-vs.myshopify.com/cart/${lines.join(',')}?channel=buy_button`;
+    location.href = url;
+  });
+}
 
 /* === Newsletter subscribe (minimal + spinner + stricter validation) === */
 (function(){

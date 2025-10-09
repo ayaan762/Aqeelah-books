@@ -145,28 +145,30 @@
   </style>
 </head>
 <body>
-  <div class="announce">FREE SHIPPING ON ORDERS OVER $100 — HANDMADE WITH LOVE</div>
+ <div class="announce">FREE SHIPPING ON ORDERS OVER $30</div>
+<header class="site-header">
+<!-- TOP BAR -->
+<div class="container nav nav-top">
+<a class="top-link" href="#search">SEARCH</a>
+<!-- keep your existing logo + title -->
+<div class="brand-wrap">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
+<a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
+</div>
+<nav class="top-right">
+<a class="top-link" href="#login" hidden>LOGIN</a>
+<a class="top-link cart" href="cart.html">CART (0)</a>
+</nav>
+</div>
+<!-- THIN-LINED MAIN NAV (only these 4) -->
+<nav class="subnav container subnav-main">
+<a href="shop.html">SHOP</a>
+<a href="authors.html">OUR STORY</a>
+<a href="contact.html">CONTACT</a>
+<a href="mission.html">MISSION</a>
+</nav>
+</header>
 
-  <header class="site-header">
-    <div class="container nav nav-top">
-      <a class="top-link" href="#search">SEARCH</a>
-      <div class="brand-wrap">
-        <a class="logo" href="index.html"><img src="assets/img/L1.png" class="logo-img"><span class="sr">AQEELAH BOOKS</span></a>
-        <a class="site-title" href="index.html" aria-label="Go to homepage">AQEELAH BOOKS</a>
-      </div>
-      <nav class="top-right">
-        <a class="top-link" href="#login">LOGIN</a>
-        <a class="top-link cart" href="cart.html">CART (0)</a>
-      </nav>
-    </div>
-
-    <nav class="subnav container subnav-main">
-      <a href="shop.html">SHOP</a>
-      <a href="authors.html">OUR STORY</a>
-      <a href="#contact">CONTACT</a>
-      <a href="mission.html">MISSION</a>
-    </nav>
-  </header>
 
   <main>
     <!-- NEW MISSION SECTION (image LEFT, text RIGHT) -->
@@ -175,7 +177,7 @@
         <div class="mission-v2__grid">
           <figure class="mission-v2__figure">
             <!-- Replace with your mission image -->
-            <img src="assets/img/b3.jpg" alt="Aqeelah Books—mission imagery" class="mission-v2__img">
+            <img src="assets/img/b3.jpg" alt="Aqeelah Books—mission imagery" class="mission-v2__img" loading="lazy">
             <figcaption class="sr">Our mission visual</figcaption>
             <div class="mission-v2__stamp">EST. 2025</div>
           </figure>
@@ -204,58 +206,83 @@
     </section>
   </main>
 
-  <footer class="footer-split">
+<footer class="footer-split">
     <div class="container footer-grid">
       <div class="f-col">
-        <h4 class="f-head">CONNECT.</h4>
+        <h4 class="f-head">CONNECT</h4>
         <ul class="f-list">
-          <li><a href="https://www.instagram.com/aqeelahpublishing/" target="_blank" rel="noopener">INSTAGRAM</a></li>
-          <li><a href="#" target="_blank" rel="noopener">FACEBOOK</a></li>
-          <li><a href="#" target="_blank" rel="noopener">PINTEREST</a></li>
+          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
         </ul>
       </div>
       <div class="f-col">
-        <h4 class="f-head">INFO.</h4>
+        <h4 class="f-head">INFO</h4>
         <ul class="f-list">
           <li><a href="shop.html">SERVICES</a></li>
-          <li><a href="#faq">FAQ</a></li>
           <li><a href="mission.html">MISSION</a></li>
           <li><a href="authors.html">AUTHORS</a></li>
         </ul>
       </div>
-      <div class="f-col">
-        <h4 class="f-head">SHOP.</h4>
-        <ul class="f-list">
-          <li><a href="shop.html">STATIONERY</a></li>
+      <div class="f-col f-col--shop">
+        <h4 class="f-head">SHOP</h4>
+        <div class="shop-wrap"><ul class="f-list">
           <li><a href="shop.html">BOOKS</a></li>
-        </ul>
-      </div>
-
-      <div class="f-badge" aria-hidden="true">
-        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" class="badge-svg">
-          <defs><filter id="bdgShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity=".25"/></filter></defs>
-          <path d="M110,6 l24,20 h32 l6,24 l24,24 l-24,24 l6,24 h-32 l-24,20 l-24,-20 h-32 l-6,-24 l-24,-24 l24,-24 l-6,-24 h32z"
-                fill="#F4B9A8" stroke="#7A552E" stroke-width="4" filter="url(#bdgShadow)"/>
-          <g transform="translate(110,110)" stroke="#6D4E2F" stroke-width="3" fill="none" stroke-linecap="round">
-            <path d="M0,40 C-2,10 -8,-18 0,-40 C8,-18 2,10 0,40z"/>
-            <path d="M0,18 C-10,0 -26,-6 -40,-2 C-18,2 -9,14 0,24" />
-            <path d="M0,18 C10,0 26,-6 40,-2 C18,2 9,14 0,24" />
-          </g>
-          <g font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" fill="#6D4E2F" text-anchor="middle">
-            <text x="110" y="56">A Q E E L A H</text>
-            <text x="110" y="74">B O O K S</text>
-            <text x="110" y="190">E S T.&nbsp;2 0 2 5</text>
-          </g>
-        </svg>
+        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
       </div>
     </div>
-
-    <div class="footer-bar">
-      <div class="container bar-inner">
-        COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span> &nbsp;|&nbsp; <a class="site-credit" href="#" target="_blank" rel="noopener">Ayaan</a>
-      </div>
-    </div>
+    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
   </footer>
+<style>
+  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
+  .f-col--shop .shop-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* pushes logo to the right edge of the column */
+    gap: 24px;
+    width: 100%;
+  }
+  .f-col--shop .f-list { margin: 0; }
+  .f-col--shop .footer-logo img {
+    width: 150px;  /* slightly larger and more to the right */
+    height: auto;
+    display: block;
+    opacity: 0.95;
+  }
+
+.f-col--shop .footer-logo{
+  position: absolute;
+  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
+  top: 40px;    /* smaller = higher; larger = lower */
+  transform: none !important; /* cancels previous nudges */
+}
+  @media (max-width: 640px) {
+    .f-col--shop .shop-wrap { gap: 16px; }
+    .f-col--shop .footer-logo img { width: 72px; }
+  }
+/* Hover underline for main nav */
+.subnav-main a{
+  position: relative;
+  text-decoration: none;
+}
+.subnav-main a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;      /* distance below the text */
+  height: 2px;       /* line thickness */
+  width: 0;
+  margin: 0 auto;    /* centers the line */
+  background: #7A552E;
+  transition: width .25s ease;
+}
+.subnav-main a:hover::after,
+.subnav-main a:focus-visible::after{
+  width: 100%;
+}
+
+
+</style>
+
 
   <script src="script.js"></script>
 </body>

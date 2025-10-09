@@ -1,86 +1,298 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>AQEELAH BOOKS — Shop</title>
-<meta content="Shop Aqeelah Books and stationery." name="description"/>
-<!-- Global site styles (header/footer/variables) -->
-<link href="styles.css" rel="stylesheet"/>
-<!-- Fonts used site-wide -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&amp;family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Shop — My Name is Abbas</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --stone-50:#fafaf9; --stone-100:#f5f5f4; --stone-200:#e7e5e4; --stone-400:#a8a29e; --stone-700:#44403c; --stone-900:#1c1917;
+      --card-radius:24px; --card-ring:1px solid var(--stone-200); --shadow-xl:0 20px 40px rgba(0,0,0,.12);
+--sage:#cfdab9;
+  --butter:#f4e77a;
+  --cream:#f9f5e6;
+  --peach:#f3d9b1;
+  --terra:#b7835f;
+  --ink:#2c251f;
+  --muted:#6c5f57;
+  --line:#e9e0cf;
+    }
+    /* ===== SHOP banner ===== */
+    .shop-banner { background:muted; border-top:1px solid rgba(0,0,0,.06); border-bottom:1px solid rgba(0,0,0,.06); }
+    .shop-banner .inner { max-width:1180px; margin:0 auto; padding:40px; text-align:center; }
+    .shop-banner h1 { margin:0 auto; font-family:"perandory-semicondensed", serif; letter-spacing:1em; font-size:50px; color:#7A552E ;font-weight:1150 }
+
+    main#shop-static { padding: 24px 0 48px; background: linear-gradient(#shop-static {
+  background: linear-gradient(
+    180deg,
+    #E6EDD9 0%,
+    #D8E4CF 100%
+  );
+}
+); }
+    #shop-static .shop-wrap { max-width:1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 24px; padding: 0 16px; }
+    @media(min-width: 1024px){ #shop-static .shop-wrap{ grid-template-columns: minmax(0,1fr) minmax(0,560px); gap: 32px; } }
+    /* neutralize any global .container inside this section only */
+    #shop-static .container { max-width:none!important; margin:0!important; padding:0!important; }
+
+    #shop-static .img-card{ position:relative; border-radius: 24px; overflow:hidden; border: var(--card-ring); box-shadow: var(--shadow-xl); background:#fff; }
+    #shop-static .img-card img{ width:100%; display:block; object-fit:cover; }
+    #shop-static .badge{ position:absolute; top:12px; left:12px; background:rgba(255,255,255,.92); border:1px solid var(--stone-200); border-radius:999px; padding:6px 10px; font-size:12px; }
+
+    #shop-static .thumbs { display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-top:16px; }
+    #shop-static .thumb { position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--stone-200); box-shadow: 0 8px 20px rgba(0,0,0,.10); cursor:pointer; }
+    #shop-static .thumb img{ width:100%; height:100%; display:block; object-fit:cover; aspect-ratio: 4/3; }
+    #shop-static .thumb.active::after{ content:""; position:absolute; inset:0; border:2px solid #1c1917; border-radius:16px; box-shadow: inset 0 0 0 2px #fff; pointer-events:none; }
+
+    #shop-static .product-card{ background:#fff; border:var(--card-ring); border-radius: var(--card-radius); box-shadow: var(--shadow-xl); padding: 24px; }
+    #shop-static .kicker{ display:inline-block; background:#ecfdf5; color:#047857; border:1px solid #a7f3d0; border-radius:999px; padding:6px 10px; font-size:12px; transform: translateY(-18px); }
+    #shop-static .title{ margin-top:0; font-size: 28px; letter-spacing:-0.02em; }
+    #shop-static .price-row{ display:flex; align-items:flex-end; gap:12px; margin: 14px 0 8px; }
+    #shop-static .price{ font-size:28px; font-weight:700; }
+    #shop-static .old{ color:var(--stone-400); text-decoration: line-through; font-size:14px; }
+    #shop-static .pill{ display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; background:#ffe4e6; color:#be123c; border:1px solid #fecdd3; }
+    #shop-static .qty-row{ display:flex; align-items:center; gap:10px; margin-top:16px; }
+    #shop-static .qty-row label{ font-size:14px; font-weight:600; color:#374151; }
+    #shop-static select.qty{ padding:8px 12px; border-radius:12px; border:1px solid var(--stone-200); background:#fff; }
+    #shop-static .ml-auto{ margin-left:auto; color:#6b7280; font-size:14px; }
+    #shop-static .subtotal{ font-weight:700; font-size:18px; color:#111827; }
+    #shop-static .btn-primary{ width:100%; padding:14px 16px; border-radius:14px; background: var(--stone-900); color:#fff; font-weight:700; border:none; cursor:pointer; box-shadow: 0 10px 20px rgba(0,0,0,.15); }
+    #shop-static .btn-primary:hover{ filter:brightness(0.95); }
+    #shop-static .desc{ margin-top:18px; color:#374151; line-height:1.75; font-size:14px; }
+
+    #shop-static .toast{ position: fixed; left: 24px; bottom: 24px; background: rgba(255,255,255,.96); border:1px solid var(--stone-200); border-radius:18px; padding:12px 14px; box-shadow: var(--shadow-xl); display:none; align-items:center; gap:12px; z-index:50;}
+    #shop-static .toast img{ width:40px; height:40px; border-radius:10px; object-fit:cover; }
+    #shop-static .toast .t1{ font-size:14px; font-weight:600; }
+    #shop-static .toast .t2{ font-size:12px; color:#6b7280; }
+
+
+
+
+  </style>
 </head>
-<body class="shop-page">
-<!-- Optional announce bar -->
-<div class="announce">FREE SHIPPING ON ORDERS OVER $30</div>
-<!-- Header (unchanged) -->
-<header class="site-header">
-<div class="container nav nav-top">
-<a class="top-link" href="#search">SEARCH</a>
-<div class="brand-wrap">
-<a class="logo" href="index.html"><img alt="AQEELAH BOOKS logo" class="logo-img" src="assets/img/L1.png"/><span class="sr">AQEELAH BOOKS</span></a>
-<a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
-</div>
-<nav class="top-right">
-<a class="top-link cart" href="cart.html">CART (0)</a>
-</nav>
-</div>
-<nav class="subnav container subnav-main">
-<a aria-current="page" href="shop.html">SHOP</a>
-<a href="authors.html">OUR STORY</a>
-<a href="mission.html">MISSION</a>
-<a href="#contact">CONTACT</a>
-</nav>
-</header>
-<main>
-<!-- (Hero removed intentionally to fix the weird band/spacing) -->
-<!-- LEFT SIDEBAR FILTERS + RIGHT GALLERY -->
-<!-- SHOP HERO (compact title band) -->
-<!-- SHOP HERO — full-bleed photo banner -->
-<section aria-label="Shop heading" class="shop-hero-banner">
-<div class="shop-hero-banner__inner container">
-<h1 class="shop-hero-banner__title">THE SHOP</h1>
-</div>
-</section><section aria-label="Featured Book" class="featured container"><div class="featured-card"><div class="featured-media"><img alt="My Name is Abbas — Book Cover" src="assets/img/p4.jpg"/><span class="badge">New</span></div><div class="featured-info"><h2 class="featured-title">My Name is Abbas</h2><p class="featured-sub">A beautifully illustrated children's book from AQEELAH BOOKS.</p><div class="featured-price">$12.99</div><button class="btn-buy add-to-cart" data-id="bk-abbas" data-img="assets/img/p4.jpg" data-name="My Name is Abbas" data-price="12.99">Add to Cart</button><ul class="featured-meta"><li>Ships in 3–5 business days</li><li>Free returns within 30 days</li></ul></div></div></section>
+<body class="cart-body">
+  <!-- Header (exact) -->
+  <div class="announce">FREE SHIPPING ON ORDERS OVER $30</div>
+  <header class="site-header">
+    <div class="container nav nav-top">
+      <a class="top-link" href="#search">SEARCH</a>
+      <div class="brand-wrap">
+        <a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png" alt="logo"/><span class="sr">AQEELAH BOOKS</span></a>
+        <a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
+      </div>
+      <nav class="top-right">
+        <a class="top-link" href="#login" hidden>LOGIN</a>
+        <a class="top-link cart" href="cart.html">CART (0)</a>
+      </nav>
+    </div>
+    <nav class="subnav container subnav-main">
+      <a href="shop.html">SHOP</a>
+      <a href="authors.html">OUR STORY</a>
+      <a href="contact.html">CONTACT</a>
+      <a href="mission.html">MISSION</a>
+    </nav>
+  </header>
 
-</main>
-<!-- Footer (unchanged) -->
-<footer class="footer-split">
-<div class="container footer-grid">
-<div class="f-col">
-<h4 class="f-head">CONNECT.</h4>
-<ul class="f-list">
-<li><a href="https://www.instagram.com/aqeelahpublishing/" rel="noopener" target="_blank">INSTAGRAM</a></li>
-<li><a href="#" rel="noopener" target="_blank">FACEBOOK</a></li>
-<li><a href="#" rel="noopener" target="_blank">PINTEREST</a></li>
-</ul>
-</div>
-<div class="f-col">
-<h4 class="f-head">INFO.</h4>
-<ul class="f-list">
-<li><a href="shop.html">SERVICES</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="mission.html">MISSION</a></li>
-<li><a href="authors.html">AUTHORS</a></li>
-</ul>
-</div>
-<div class="f-col">
-<h4 class="f-head">SHOP.</h4>
-<ul class="f-list">
-<li><a href="shop.html">STATIONERY</a></li>
-<li><a href="shop.html">BOOKS</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bar">
-<div class="container bar-inner">
-        COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span>
-</div>
-</div>
-</footer>
+  <!-- SHOP banner -->
+  <div class="shop-banner">
+    <div class="inner">
+      <h1>SHOP</h1>
+    </div>
+  </div>
 
+  <!-- Main product section -->
+  <main id="shop-static">
+    <div class="shop-wrap">
+      <!-- Left: Image + thumbs -->
+      <div>
+        <div class="img-card">
+          <img id="mainImage" src="assets/img/p4.jpg" alt="My Name is Abbas — cover"/>
+          <span class="badge">Pre-Order</span>
+        </div>
+        <div class="thumbs" id="thumbStrip">
+          <div class="thumb active" data-src="assets/img/p4.jpg"><img src="assets/img/p4.jpg" alt="Main cover"/></div>
+          <div class="thumb" data-src="assets/img/b2.jpg"><img src="assets/img/b2.jpg" alt="Angle 2"/></div>
+          <div class="thumb" data-src="assets/img/ab1.jpg"><img src="assets/img/ab1.jpg" alt="Angle 3"/></div>
+          <div class="thumb" data-src="assets/img/ab2.jpg"><img src="assets/img/b4.jpg" alt="Angle 4"/></div>
+        </div>
+      </div>
+
+      <!-- Right: Product card -->
+      <div class="product-card">
+        <span class="kicker">In stock</span>
+        <h1 class="title">My Name is Abbas</h1>
+        <div class="price-row">
+          <span class="price">$12.99</span>
+          <span class="pill">Limited offer</span>
+        </div>
+
+        <div class="qty-row">
+          <label for="qty">Qty</label>
+          <select id="qty" class="qty">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+          </select>
+          <div class="ml-auto">Subtotal</div>
+          <div id="subtotal" class="subtotal">$12.99</div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <button
+            id="addBtn"
+            class="btn-primary add-to-cart"
+            data-id="bk-abbas"
+            data-name="My Name is Abbas"
+            data-price="12.99"
+            data-img="assets/img/p4.jpg"
+            type="button"
+          >Add to Cart</button>
+        </div>
+
+        <p class="desc">
+          We are honored to embark on this journey by telling the story of the son of Ali (a) and Ummul Baneen (a),
+          the standard-bearer of Karbala and the moon of the Hashemi clan. The life of Abu al-Fadhl Abbas (a) is one of truth
+          and sacrifice, of service to the Imam (a) of his time. Children will learn about the day of Ashura in a way that is
+          meaningful and appropriate. This book is complete with vivid illustrations, discussion questions, and a glossary to
+          support understanding. We hope this humble introduction to Abbas (a) inspires the younger generation to start building
+          a legacy rooted in bravery, loyalty, and resilience.
+        </p>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast">
+      <img id="toastImg" src="assets/img/p4.jpg" alt="Book"/>
+      <div>
+        <div class="t1">Added to cart</div>
+        <div id="toastLine" class="t2">My Name is Abbas × 1</div>
+      </div>
+    </div>
+  </main>
+
+ <footer class="footer-split">
+    <div class="container footer-grid">
+      <div class="f-col">
+        <h4 class="f-head">CONNECT</h4>
+        <ul class="f-list">
+          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 class="f-head">INFO</h4>
+        <ul class="f-list">
+          <li><a href="shop.html">SERVICES</a></li>
+          <li><a href="mission.html">MISSION</a></li>
+          <li><a href="authors.html">AUTHORS</a></li>
+        </ul>
+      </div>
+      <div class="f-col f-col--shop">
+        <h4 class="f-head">SHOP</h4>
+        <div class="shop-wrap"><ul class="f-list">
+          <li><a href="shop.html">BOOKS</a></li>
+        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
+      </div>
+    </div>
+    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
+  </footer>
+<style>
+
+.muted{
+  white-space: pre-line;   /* keep \n as line breaks, wrap long lines */
+}
+  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
+  .f-col--shop .shop-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* pushes logo to the right edge of the column */
+    gap: 24px;
+    width: 100%;
+  }
+  .f-col--shop .f-list { margin: 0; }
+  .f-col--shop .footer-logo img {
+    width: 150px;  /* slightly larger and more to the right */
+    height: auto;
+    display: block;
+    opacity: 0.95;
+  }
+
+.f-col--shop .footer-logo{
+  position: absolute;
+  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
+  top: 40px;    /* smaller = higher; larger = lower */
+  transform: none !important; /* cancels previous nudges */
+}
+  @media (max-width: 640px) {
+    .f-col--shop .shop-wrap { gap: 16px; }
+    .f-col--shop .footer-logo img { width: 72px; }
+  }
+/* Hover underline for main nav */
+.subnav-main a{
+  position: relative;
+  text-decoration: none;
+}
+.subnav-main a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;      /* distance below the text */
+  height: 2px;       /* line thickness */
+  width: 0;
+  margin: 0 auto;    /* centers the line */
+  background: #7A552E;
+  transition: width .25s ease;
+}
+.subnav-main a:hover::after,
+.subnav-main a:focus-visible::after{
+  width: 100%;
+}
+
+
+</style>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const price = 12.99;
+    const qtyEl = document.getElementById('qty');
+    const subtotalEl = document.getElementById('subtotal');
+    const toast = document.getElementById('toast');
+    const toastLine = document.getElementById('toastLine');
+    const toastImg = document.getElementById('toastImg');
+    const addBtn = document.getElementById('addBtn');
+    const mainImage = document.getElementById('mainImage');
+
+    function updateSubtotal(){
+      const q = parseInt(qtyEl.value, 10);
+      subtotalEl.textContent = `$${(q * price).toFixed(2)}`;
+      toastLine.textContent = `My Name is Abbas × ${q}`;
+      addBtn.setAttribute('data-qty', String(q));
+    }
+    qtyEl.addEventListener('change', updateSubtotal);
+    updateSubtotal();
+
+    addBtn.addEventListener('click', () => {
+      toast.style.display = 'flex';
+      setTimeout(()=>{ toast.style.display = 'none'; }, 1400);
+    });
+
+    document.getElementById('thumbStrip').addEventListener('click', (e) => {
+      const item = e.target.closest('.thumb');
+      if(!item) return;
+      const src = item.getAttribute('data-src');
+      if(!src) return;
+      mainImage.src = src;
+      toastImg.src = src;
+      document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+      item.classList.add('active');
+      addBtn.setAttribute('data-img', src);
+    });
+  </script>
 </body>
 </html>

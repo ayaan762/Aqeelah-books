@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="favicon.ico" rel="icon"/>
+  <link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="favicon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="favicon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="favicon-192.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="favicon-512.png" rel="icon" sizes="512x512" type="image/png"/>
+  <title>Contact — AQEELAH BOOKS</title>
+  <meta name="description" content="Get in touch with Aqeelah Books."/>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --bg: #f6efdc;
+      --panel: #efe3c7;
+      --ink: #5a422b;
+      --muted: #7e6b55;
+      --line: #e2d6bd;
+    }
+    body.contact-like { background: var(--bg); color: var(--ink); }
+
+    .container.narrow { width:min(1160px,94%); margin: 0 auto; }
+    .contact-grid{
+      display:grid; grid-template-columns: 0.9fr 1.1fr; gap:40px; align-items:start;
+      padding: 32px 0 56px;
+    }
+    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
+
+    /* Left panel */
+    .contact-intro .badge{
+      display:inline-block; background:transparent; border:0px solid #c9a87f; border-radius:122px;
+      padding:20px 18px; margin-bottom:22px;
+    }
+    .contact-intro .badge img{ height:100px; display:block; margin-left:70px; }
+    .contact-intro h1{
+      font-family:"Bodoni Moda", serif; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+      font-size: clamp(32px, 4.2vw, 56px); line-height:1.05; margin:4px 0 14px;
+    }
+    .contact-intro p{ color:var(--muted); line-height:1.6; margin: 10px 0; }
+    .cta-pill{
+      display:inline-block; background:#edc2a4; color:#4a3523; border:2px solid #c79c7a;
+      font-weight:700; padding:14px 22px; border-radius:999px; letter-spacing:.06em; margin-top:18px;
+      text-decoration:none;
+    }
+
+    /* Right form card */
+    .form-card{ background: var(--panel); border:1px solid var(--line); padding: 22px; border-radius: 10px; }
+    .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width: 720px){ .form-grid{ grid-template-columns:1fr; } }
+
+    .field label{
+      display:block; font-size:.85rem; font-weight:800; text-transform:uppercase; letter-spacing:.1em;
+      margin: 6px 0 6px;
+    }
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field textarea{
+      width:100%; background:#fff; border:1px solid #d8c9ac; border-radius:6px;
+      padding:12px 12px; font: 400 1rem/1.3 "Inter", system-ui, sans-serif;
+    }
+    .field textarea{ min-height: 160px; resize: vertical; }
+    .row-2{ grid-column: 1 / -1; }
+    .checkline{ display:flex; gap:10px; align-items:center; margin-top:6px; }
+    .actions{ margin-top: 8px; }
+    .btn-solid{
+      display:inline-block; border:none; padding:14px 22px; font-weight:800; letter-spacing:.08em;
+      border-radius:999px; cursor:pointer; text-transform:uppercase; background:#d7b48e;
+    }
+    .note{ color:var(--muted); font-size:.92rem; margin-top: 6px; }
+    .success,.error{ display:none; margin-top:10px; padding:10px 12px; border-radius:8px; font-weight:700; }
+    .success{ background:#e8f5ea; border:1px solid #a8d5b5; }
+    .error{ background:#fde8e8; border:1px solid #e4b4b4; }
+  </style>
+</head>
+
+<body class="contact-like">
+  <!-- ===== HEADER (copied from index.html) ===== -->
+  <div hidden class="announce">FREE SHIPPING ON ORDERS OVER $30</div>
+ <header class="site-header">
+<!-- TOP BAR -->
+<div class="container nav nav-top">
+<a class="top-link" href="#search">SEARCH</a>
+<!-- keep your existing logo + title -->
+<div class="brand-wrap">
+<a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
+<a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
+</div>
+<nav class="top-right">
+<a class="top-link" href="#login" hidden>LOGIN</a>
+<a class="top-link cart" href="cart.html">CART (0)</a>
+</nav>
+</div>
+<!-- THIN-LINED MAIN NAV (only these 4) -->
+<nav class="subnav container subnav-main">
+<a href="shop.html">SHOP</a>
+<a href="authors.html">OUR STORY</a>
+<a href="contact.html">CONTACT</a>
+<a href="mission.html">MISSION</a>
+</nav>
+</header>
+
+
+  <!-- ===== MAIN ===== -->
+  <main class="container narrow">
+    <div class="contact-grid">
+      <!-- Left: intro -->
+      <section class="contact-intro">
+        <div class="badge">
+          <img src="assets/img/aqeelah-footer-logo.png" alt="Aqeelah Books badge" loading="lazy">
+        </div>
+        <h1>Contact Us!</h1>
+        <p>Salaam, thank you for inquiring about Aqeelah Publishing. Please fill out the form and we will get back to you in a timely manner.</p>
+        <p> Prefer email? Tap below and we’ll open your mail app.</p>
+        <a class="cta-pill" href="mailto:hello@aqeelah.org">Send us an email</a>
+      </section>
+
+      <!-- Right: form -->
+      <section class="form-card">
+        <form id="contact-form" action="https://formspree.io/f/xnnbkwwv" method="POST" novalidate>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"/>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="firstName">Name*</label>
+              <input id="firstName" name="first_name" type="text" placeholder="First Name" required>
+            </div>
+            <div class="field">
+              <label for="lastName" aria-hidden="true" style="visibility:hidden">Last Name</label>
+              <input id="lastName" name="last_name" type="text" placeholder="Last Name">
+            </div>
+
+            <div class="field row-2">
+              <label for="phone">Contact Number*</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(555) 123-4567" required>
+            </div>
+
+            <div class="field row-2">
+              <label for="email">Email*</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+              <label class="checkline">
+                <input type="checkbox" name="opt_in" value="yes">
+                <span>Sign up for news and updates</span>
+              </label>
+            </div>
+
+            <div class="field row-2">
+              <label for="message">Message*</label>
+              <textarea id="message" name="message" placeholder="Tell us a little about what you need…" required></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="btn-solid" type="submit">Send</button>
+            <div class="note">Fields marked * are required.</div>
+          </div>
+
+          <div id="contact-success" class="success" role="status">Thanks! Your message was sent.</div>
+          <div id="contact-error" class="error" role="alert">Sorry—something went wrong. Please try again.</div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER (copied from index.html) ===== -->
+  <footer class="footer-split">
+    <div class="container footer-grid">
+      <div class="f-col">
+        <h4 class="f-head">CONNECT</h4>
+        <ul class="f-list">
+          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 class="f-head">INFO</h4>
+        <ul class="f-list">
+          <li><a href="shop.html">SERVICES</a></li>
+          <li><a href="mission.html">MISSION</a></li>
+          <li><a href="authors.html">AUTHORS</a></li>
+        </ul>
+      </div>
+      <div class="f-col f-col--shop">
+        <h4 class="f-head">SHOP</h4>
+        <div class="shop-wrap"><ul class="f-list">
+          <li><a href="shop.html">BOOKS</a></li>
+        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
+      </div>
+    </div>
+    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
+  </footer>
+<style>
+  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
+  .f-col--shop .shop-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* pushes logo to the right edge of the column */
+    gap: 24px;
+    width: 100%;
+  }
+  .f-col--shop .f-list { margin: 0; }
+  .f-col--shop .footer-logo img {
+    width: 150px;  /* slightly larger and more to the right */
+    height: auto;
+    display: block;
+    opacity: 0.95;
+  }
+
+.f-col--shop .footer-logo{
+  position: absolute;
+  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
+  top: 40px;    /* smaller = higher; larger = lower */
+  transform: none !important; /* cancels previous nudges */
+}
+  @media (max-width: 640px) {
+    .f-col--shop .shop-wrap { gap: 16px; }
+    .f-col--shop .footer-logo img { width: 72px; }
+  }
+/* Hover underline for main nav */
+.subnav-main a{
+  position: relative;
+  text-decoration: none;
+}
+.subnav-main a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;      /* distance below the text */
+  height: 2px;       /* line thickness */
+  width: 0;
+  margin: 0 auto;    /* centers the line */
+  background: #7A552E;
+  transition: width .25s ease;
+}
+.subnav-main a:hover::after,
+.subnav-main a:focus-visible::after{
+  width: 100%;
+}
+
+
+</style>
+
+
+  <!-- your site JS (same as homepage) -->
+  <script src="script.js"></script>
+
+  <!-- Ajax submit + inline feedback -->
+  <script>
+    (function(){
+      const form = document.getElementById('contact-form');
+      if(!form) return;
+      const ok = document.getElementById('contact-success');
+      const err = document.getElementById('contact-error');
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        ok.style.display='none'; err.style.display='none';
+
+        if(!form.first_name.value.trim() || !form.email.value.trim() || !form.phone.value.trim() || !form.message.value.trim()){
+          err.textContent = 'Please fill the required fields.'; err.style.display='block'; return;
+        }
+        const data = new FormData(form);
+        try{
+          const res = await fetch(form.action, { method:'POST', body:data, headers:{'Accept':'application/json'} });
+          if(res.ok){ form.reset(); ok.style.display='block'; }
+          else { err.style.display='block'; }
+        }catch(_){ err.style.display='block'; }
+      });
+    })();
+  </script>
+</body>
+</html>

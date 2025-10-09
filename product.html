@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Product — AQEELAH BOOKS</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Gallery */
+    .p-media{ position:relative }
+    .p-main{ width:100%; border-radius:14px; box-shadow:0 10px 24px rgba(0,0,0,.06) }
+    .p-strip{ margin-top:10px; display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; scroll-snap-type:x mandatory }
+    .p-thumb{ flex:0 0 auto; width:100px; height:100px; border-radius:10px; overflow:hidden; border:2px solid transparent; cursor:pointer; scroll-snap-align:start }
+    .p-thumb img{ width:100%; height:100%; object-fit:cover }
+    .p-thumb.active{ border-color:#3a2a1a }
+    .pill{ position:absolute; top:10px; left:10px; background:#3a2a1a; color:#fff; border-radius:999px; padding:6px 10px; font-weight:800; letter-spacing:.08em; font-size:.78rem }
+    .p-actions{ display:flex; gap:10px; align-items:center; flex-wrap:wrap }
+  </style>
 </head>
 <body class="product-page">
   <header class="header">
@@ -16,7 +27,7 @@
       <nav class="subnav container subnav-main">
         <a href="shop.html">SHOP</a>
         <a href="authors.html">OUR STORY</a>
-        <a href="#contact">CONTACT</a>
+        <a href="contact.html">CONTACT</a>
         <a href="mission.html">MISSION</a>
       </nav>
     </div>
@@ -24,44 +35,82 @@
 
   <main>
     <section class="product-hero container">
-      <div class="p-media"><img id="p-img" alt=""></div>
+      <div class="p-media">
+        <span class="pill">PRE-ORDER</span>
+        <img id="p-main" class="p-main" alt="Product image" loading="lazy">
+        <div id="p-strip" class="p-strip" aria-label="Product gallery"></div>
+      </div>
+
       <div class="p-info">
         <h1 id="p-name" class="p-title"></h1>
         <div id="p-price" class="p-price"></div>
         <p id="p-desc" class="p-desc">A carefully crafted title from AQEELAH BOOKS.</p>
-        <button id="p-add" class="btn-buy add-to-cart">Add to Cart</button>
+
+        <div class="p-actions">
+          <button id="p-add" class="btn-buy add-to-cart">Pre-Order</button>
+          <a href="shop.html" class="p-back">← Back to Shop</a>
+        </div>
+
         <div class="p-meta">
-          <div>Ships in 3–5 business days</div>
+          <div>Pre-order today. Ships on release day.</div>
           <div>Free returns within 30 days</div>
         </div>
-        <a href="shop.html" class="p-back">← Back to Shop</a>
       </div>
     </section>
   </main>
 
   <script>
-    // Populate from URL params: ?name=...&price=...&img=...&id=...
+    // Populate from URL: ?name=&price=&img=&id=&images=comma,separated,paths
     (function(){
       const qp = new URL(location).searchParams;
       const name = qp.get('name') || 'AQEELAH BOOKS — Title';
-      const price = qp.get('price') || '';
-      const img = qp.get('img') || 'assets/img/b1.jpg';
-      const id = qp.get('id') || 'prod-1';
+      const price = qp.get('price') || '12.99';
+      const hero = qp.get('img') || 'assets/img/p4.jpg';
+      const id   = qp.get('id') || 'prod-1';
+      const imagesParam = qp.get('images');
 
-      const el = (id)=>document.getElementById(id);
-      el('p-name').textContent = name;
-      el('p-price').textContent = price ? ('$' + parseFloat(price).toFixed(2)) : 'Coming Soon';
-      el('p-img').src = img;
-      const add = el('p-add');
-      if (price){
-        add.dataset.id = id;
-        add.dataset.name = name;
-        add.dataset.price = parseFloat(price);
-        add.dataset.img = img;
-      } else {
-        add.disabled = true;
-        add.textContent = 'Coming Soon';
+      const images = imagesParam
+        ? imagesParam.split(',').map(s => s.trim()).filter(Boolean)
+        : [hero]; // default to at least one image
+
+      // Set core fields
+      const $ = (id)=>document.getElementById(id);
+      document.title = name + ' — AQEELAH BOOKS';
+      $('p-name').textContent = name;
+      $('p-price').textContent = '$' + parseFloat(price).toFixed(2);
+      const add = $('p-add');
+      add.dataset.id = id;
+      add.dataset.name = name;
+      add.dataset.price = parseFloat(price);
+      add.dataset.img = hero;
+
+      // Build gallery
+      const main = document.getElementById('p-main');
+      const strip = document.getElementById('p-strip');
+      main.src = hero;
+
+      function activate(src){
+        main.src = src;
+        [...strip.children].forEach(el => el.classList.toggle('active', el.dataset.src === src));
       }
+
+      images.forEach((src, idx) => {
+        const cell = document.createElement('button');
+        cell.className = 'p-thumb' + (idx === 0 ? ' active':'');
+        cell.type = 'button';
+        cell.dataset.src = src;
+        cell.innerHTML = '<img src="'+src+'" alt="Thumbnail" loading="lazy">';
+        cell.addEventListener('click', ()=>activate(src));
+        strip.appendChild(cell);
+      });
+
+      // Optional: enable horizontal wheel scrolling
+      strip.addEventListener('wheel', (e)=>{
+        if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+          strip.scrollLeft += e.deltaY;
+          e.preventDefault();
+        }
+      }, { passive:false });
     })();
   </script>
   <script src="script.js"></script>

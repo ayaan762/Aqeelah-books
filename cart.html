@@ -15,11 +15,11 @@
 <a class="top-link" href="#search">SEARCH</a>
 <!-- keep your existing logo + title -->
 <div class="brand-wrap">
-<a class="logo" href="index.html"><img class="logo-img" src="assets/img/L1.png"/><span class="sr">AQEELAH BOOKS</span></a>
+<a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
 <a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
 </div>
 <nav class="top-right">
-<a class="top-link" href="#login">LOGIN</a>
+<a class="top-link" href="#login" hidden>LOGIN</a>
 <a class="top-link cart" href="cart.html">CART (0)</a>
 </nav>
 </div>
@@ -27,81 +27,283 @@
 <nav class="subnav container subnav-main">
 <a href="shop.html">SHOP</a>
 <a href="authors.html">OUR STORY</a>
-<a href="#contact">CONTACT</a>
+<a href="contact.html">CONTACT</a>
 <a href="mission.html">MISSION</a>
 </nav>
 </header>
-<main class="container">
-<nav class="crumbs"><a href="index.html">Home</a> / <span>Cart</span></nav>
-<section class="cart-page">
-<div class="cart-table-wrap">
-<table aria-describedby="cart-heading" class="cart-table">
-<thead><tr><th scope="col">Item</th><th scope="col">Price</th><th scope="col">Qty</th><th scope="col">Total</th><th class="sr" scope="col">Actions</th></tr></thead>
-<tbody id="cart-page-items"></tbody>
-</table>
-<p class="muted" id="cart-empty" style="display:none">Your cart is empty.</p>
-</div>
-<aside class="cart-summary">
-<h2 id="cart-heading">Order Summary</h2>
-<div class="sum-row"><span>Subtotal</span><strong id="sum-subtotal">$0.00</strong></div>
-<div class="sum-note muted">Shipping &amp; taxes calculated at checkout.</div>
-<button class="btn" disabled="" id="sum-checkout">Checkout</button>
-<button class="btn-outline" id="sum-continue" onclick="window.location='index.html#shop'">Continue Shopping</button>
-</aside>
-</section>
+
+
+
+<main class="container cart-like-mock">
+  <h1 class="cart-title"> CART </h1>
+
+  <section class="cart-visual" id="cart-root">
+    <!-- Rows will render here by JS -->
+  </section>
 </main>
+
+<script>
+// Minimal Cart State with localStorage persistence
+const STORAGE_KEY = "aqeelah_cart_v1";
+const fallbackItems = [];
+
+function loadCart(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return [];
+    const parsed = JSON.parse(raw);
+    if(!Array.isArray(parsed) || parsed.length === 0) return [];
+    return parsed;
+  }catch(e){ return fallbackItems; }
+}
+function saveCart(items){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+}
+
+function formatMoney(n){ return "$" + Number(n||0).toFixed(2); }
+
+function render(){
+  const root = document.getElementById("cart-root");
+  const items = loadCart();
+  if(items.length === 0){
+    root.innerHTML = '<p style="margin:32px 0;color:#6e4e23;">Your cart is empty.</p>';
+    return;
+  }
+
+  // Build rows
+  let html = "";
+  items.forEach((it, idx) => {
+    html += `
+      <div class="cart-line" data-id="${it.id}">
+${it.img ? `<img class="cart-thumb" src="${it.img}" alt="${it.name || it.title || 'Item'}" loading="lazy">` : ``}
+        <div class="cart-info">
+<h3 class="cart-item-title">${it.name || it.title || 'Item'}</h3>
+          <div class="cart-meta">Quantity: <strong>${it.qty}</strong></div>
+        </div>
+        <div class="cart-qty">
+          <button class="qty-btn btn-minus" aria-label="decrease">–</button>
+          <span class="qty-val">${it.qty}</span>
+          <button class="qty-btn btn-plus" aria-label="increase">+</button>
+        </div>
+        <div class="cart-price">${formatMoney(it.price)}</div>
+        <button class="cart-remove" aria-label="remove">×</button>
+      </div>
+      <hr class="cart-sep" />
+    `;
+  });
+
+  // Subtotal and checkout
+  const subtotal = items.reduce((s,it)=> s + it.price*it.qty, 0);
+  html += `
+    <div class="cart-summary-inline">
+      <div class="sum-label">Subtotal</div>
+      <div class="sum-value">${formatMoney(subtotal)}</div>
+    </div>
+    <div class="checkout-row">
+      <a class="checkout-link" id="checkout-link" href="#">C H E C K O U T</a>
+    </div>
+  `;
+
+  root.innerHTML = html;
+
+  // Bind events
+  root.querySelectorAll(".cart-line").forEach(line => {
+    const id = line.getAttribute("data-id");
+    const btnMinus = line.querySelector(".btn-minus");
+    const btnPlus  = line.querySelector(".btn-plus");
+    const btnRemove = line.querySelector(".cart-remove");
+
+    btnMinus.addEventListener("click", () => changeQty(id, -1));
+    btnPlus.addEventListener("click", () => changeQty(id, +1));
+    btnRemove.addEventListener("click", () => removeItem(id));
+  });
+
+  const checkout = document.getElementById("checkout-link");
+checkout.addEventListener("click", (e) => {
+  e.preventDefault();
+  const SHOPIFY_DOMAIN = 'v8nzdf-vs.myshopify.com';
+  const VARIANT_MAP = { 'bk-abbas': '52714239656302' };
+
+  const items = loadCart();
+  if (!Array.isArray(items) || !items.length) { alert('Your cart is empty.'); return; }
+
+  const lines = items.map(it => {
+    const vid = VARIANT_MAP[it.id];
+    if (!vid) throw new Error(`No Shopify variant mapping for item id "${it.id}"`);
+    const q = Math.max(1, parseInt(it.qty || 1, 10));
+    return `${vid}:${q}`;
+  });
+
+  const url = `https://v8nzdf-vs.myshopify.com/cart/${lines.join(',')}?channel=buy_button`;
+  location.href = url;
+});
+}
+
+function changeQty(id, delta){
+  const items = loadCart();
+  const idx = items.findIndex(it => it.id === id);
+  if(idx === -1) return;
+  items[idx].qty = Math.max(1, (items[idx].qty || 1) + delta);
+  saveCart(items);
+  render();
+}
+
+// one-time purge of legacy 'yellowstone' demo items
+(function purgeYellowstone(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    let items = JSON.parse(raw);
+    if(!Array.isArray(items)) return;
+    const filtered = items.filter(it => {
+      const t = (it && (it.title || it.name || '')).toLowerCase();
+      const id = (it && it.id || '').toLowerCase();
+      return !(t.includes('yellowstone') || id.includes('yellowstone'));
+    });
+    if(filtered.length !== items.length){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+    }
+  }catch(e){}
+})();
+
+function removeItem(id){
+  let items = loadCart().filter(it => it.id !== id);
+  saveCart(items);
+  render();
+}
+
+// Kickoff
+document.addEventListener("DOMContentLoaded", render);
+</script>
 <footer class="footer-split">
-<div class="container footer-grid">
-<div class="f-col">
-<h4 class="f-head">CONNECT.</h4>
-<ul class="f-list">
-<li><a href="https://www.instagram.com/aqeelahpublishing/" rel="noopener" target="_blank">INSTAGRAM</a></li>
-<li><a href="#" rel="noopener" target="_blank">FACEBOOK</a></li>
-<li><a href="#" rel="noopener" target="_blank">PINTEREST</a></li>
-</ul>
-</div>
-<div class="f-col">
-<h4 class="f-head">INFO.</h4>
-<ul class="f-list"><li><a href="shop.html">SERVICES</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="mission.html">MISSION</a></li>
-<li><a href="authors.html">AUTHORS</a></li></ul>
-</div>
-<div class="f-col">
-<h4 class="f-head">SHOP.</h4>
-<ul class="f-list">
-<li><a href="shop.html">STATIONERY</a></li>
-<li><a href="shop.html">BOOKS</a></li>
-</ul>
-</div>
-<div aria-hidden="true" class="f-badge">
-<!-- Decorative badge (original artwork) -->
-<svg class="badge-svg" viewbox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter height="140%" id="bdgShadow" width="140%" x="-20%" y="-20%">
-<fedropshadow dx="0" dy="2" flood-opacity=".25" stddeviation="2.5"></fedropshadow>
-</filter>
-</defs>
-<path d="M110,6 l24,20 h32 l6,24 l24,24 l-24,24 l6,24 h-32 l-24,20 l-24,-20 h-32 l-6,-24 l-24,-24 l24,-24 l-6,-24 h32z" fill="#F4B9A8" filter="url(#bdgShadow)" stroke="#7A552E" stroke-width="4"></path>
-<g fill="none" stroke="#6D4E2F" stroke-linecap="round" stroke-width="3" transform="translate(110,110)">
-<path d="M0,40 C-2,10 -8,-18 0,-40 C8,-18 2,10 0,40z"></path>
-<path d="M0,18 C-10,0 -26,-6 -40,-2 C-18,2 -9,14 0,24"></path>
-<path d="M0,18 C10,0 26,-6 40,-2 C18,2 9,14 0,24"></path>
-</g>
-<g fill="#6D4E2F" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="700" text-anchor="middle">
-<text x="110" y="56">A Q E E L A H</text>
-<text x="110" y="74">B O O K S</text>
-<text x="110" y="190">E S T. 2 0 2 5</text>
-</g>
-</svg>
-</div>
-</div>
-<div class="footer-bar">
-<div class="container bar-inner">
-      COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span>  |  <a class="site-credit" href="#" rel="noopener" target="_blank">Ayaan</a>
-</div>
-</div>
-</footer>
+    <div class="container footer-grid">
+      <div class="f-col">
+        <h4 class="f-head">CONNECT</h4>
+        <ul class="f-list">
+          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4 class="f-head">INFO</h4>
+        <ul class="f-list">
+          <li><a href="shop.html">SERVICES</a></li>
+          <li><a href="mission.html">MISSION</a></li>
+          <li><a href="authors.html">AUTHORS</a></li>
+        </ul>
+      </div>
+      <div class="f-col f-col--shop">
+        <h4 class="f-head">SHOP</h4>
+        <div class="shop-wrap"><ul class="f-list">
+          <li><a href="shop.html">BOOKS</a></li>
+        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
+      </div>
+    </div>
+    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
+  </footer>
+<style>
+  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
+  .f-col--shop .shop-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between; /* pushes logo to the right edge of the column */
+    gap: 24px;
+    width: 100%;
+  }
+  .f-col--shop .f-list { margin: 0; }
+  .f-col--shop .footer-logo img {
+    width: 150px;  /* slightly larger and more to the right */
+    height: auto;
+    display: block;
+    opacity: 0.95;
+  }
+
+.f-col--shop .footer-logo{
+  position: absolute;
+  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
+  top: 40px;    /* smaller = higher; larger = lower */
+  transform: none !important; /* cancels previous nudges */
+}
+  @media (max-width: 640px) {
+    .f-col--shop .shop-wrap { gap: 16px; }
+    .f-col--shop .footer-logo img { width: 72px; }
+  }
+/* Hover underline for main nav */
+.subnav-main a{
+  position: relative;
+  text-decoration: none;
+}
+.subnav-main a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;      /* distance below the text */
+  height: 2px;       /* line thickness */
+  width: 0;
+  margin: 0 auto;    /* centers the line */
+  background: #7A552E;
+  transition: width .25s ease;
+}
+.subnav-main a:hover::after,
+.subnav-main a:focus-visible::after{
+  width: 100%;
+}
+
+
+
+/* === CART VISUAL STYLE (matches provided screenshot) === */
+.cart-title{font-family:"Bodoni Moda",serif;font-weight:700;letter-spacing:.15em;font-size:42px;color:#6e4e23;margin:48px 0 28px;}
+.cart-line{display:grid;grid-template-columns:170px 1fr 180px 120px 40px;align-items:center;gap:32px;padding:0 0 14px;}
+.cart-thumb{width:170px;height:170px;object-fit:cover;border-radius:2px;}
+.cart-item-title{font-size:22px;margin:0 0 10px;color:#6e4e23;font-weight:600;}
+.cart-meta{color:#9b7a4e;letter-spacing:.02em;font-size:18px;}
+.cart-qty{display:flex;align-items:center;justify-content:center;gap:18px;color:#b9966a;font-size:20px;}
+.qty-btn{background:transparent;border:none;font-size:28px;line-height:1;color:#d0b58f;cursor:not-allowed;}
+.qty-val{color:#6e4e23;font-size:18px;}
+.cart-price{color:#6e4e23;font-size:20px;justify-self:end;}
+.cart-remove{background:none;border:none;color:#b9966a;font-size:26px;cursor:pointer;justify-self:end;}
+.cart-sep{border:0;border-top:1px solid #e1d9bf;margin:22px 0 34px;}
+.cart-summary-inline{display:grid;grid-template-columns:1fr 150px;align-items:center;color:#6e4e23;}
+.sum-label{justify-self:center;font-size:18px;}
+.sum-value{justify-self:end;font-size:18px;}
+.checkout-row{display:flex;justify-content:flex-end;margin-top:28px;margin-bottom:80px;}
+.checkout-link{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-weight:600;letter-spacing:.6em;color:#6e4e23;text-decoration:underline;text-underline-offset:6px;}
+@media (max-width:900px){.cart-line{grid-template-columns:120px 1fr;row-gap:18px}.cart-thumb{width:120px;height:120px}.cart-qty,.cart-price,.cart-remove{justify-self:start}.cart-price{grid-column:2}.cart-qty{grid-column:2}.cart-remove{grid-column:2}.cart-summary-inline{grid-template-columns:1fr 1fr}}
+/* === END CART VISUAL STYLE === */
+/* Make +/- look like plain square buttons */
+.cart-qty .qty-btn{
+  background: transparent;
+  border: 1px solid #e1d9bf;   /* or border:none if you prefer */
+  border-radius: 6px;          /* not circular */
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 18px;
+  color: #6e4e23;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Kill any stray icon fonts / pseudo-elements that might be adding a cross */
+.cart-qty .qty-btn::before,
+.cart-qty .qty-btn::after{
+  content: none !important;
+}
+
+/* Keep the remove button styling separate from qty buttons */
+.cart-remove{
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: #b9966a;
+  cursor: pointer;
+}
+
+/* If you have a global 'button' style making things circular, neutralize it here */
+.cart-qty button{ border-radius: 6px !important; }
+
+</style>
 <script src="script.js"></script>
 </body>
 </html>
