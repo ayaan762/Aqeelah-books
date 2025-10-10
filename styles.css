@@ -1422,3 +1422,36 @@ img{ max-width: 100%; height: auto; }
     margin-top: 0 !important; 
   }
 }
+/* Footer: on phones, show the logo above the lists in the SHOP column */
+@media (max-width: 900px){
+  .footer-split .f-col--shop .shop-wrap{
+    display: flex !important;
+    flex-direction: column !important;   /* stack */
+    align-items: center !important;      /* center both */
+    gap: 12px;
+  }
+  .footer-split .f-col--shop .footer-logo{
+    order: -1 !important;                /* move logo above lists */
+    position: static !important;         /* kill any old absolute rules */
+    margin: 0 0 8px 0;
+  }
+  .footer-split .f-col--shop .footer-logo img{
+    max-width: 160px;
+    height: auto;
+  }
+}
+/* Footer list centering (fix index misalignment on phones) */
+.footer-split .f-list{
+  list-style: none;
+  margin: 0;
+  padding-left: 0 !important;  /* kill default UL indent */
+  text-align: center !important;
+}
+@media (max-width: 900px){
+  .footer-split .footer-grid{ text-align: center; }
+  .footer-split .f-col,
+  .footer-split .f-col .list-wrap{
+    display: grid;               /* gives us a centering context */
+    justify-items: center;       /* center the list block itself */
+  }
+}
