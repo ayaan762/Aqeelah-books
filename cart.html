@@ -12,7 +12,15 @@
 <header class="site-header">
 <!-- TOP BAR -->
 <div class="container nav nav-top">
-<a class="top-link" href="#search">SEARCH</a>
+<button id="menu-toggle"
+        class="menu menu-icon"
+        aria-label="Open menu"
+        aria-controls="mobile-drawer"
+        aria-expanded="false">
+  <span aria-hidden="true"></span>
+</button>
+
+<a class="top-link search-link" href="#search">SEARCH</a>
 <!-- keep your existing logo + title -->
 <div class="brand-wrap">
 <a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
@@ -32,6 +40,23 @@
 
 </nav>
 </header>
+<div class="m-overlay" aria-hidden="true"></div>
+<aside id="mobile-drawer" class="m-drawer" aria-hidden="true">
+  <div class="m-head">
+    <a class="m-brand" href="index.html">AQEELAH BOOKS</a>
+    <button class="m-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="m-nav" aria-label="Mobile">
+    <a href="authors.html">OUR STORY</a>
+    <a href="mission.html">MISSION</a>
+    <a href="shop.html">SHOP</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="#login" hidden>LOGIN</a>
+  </nav>
+
+  <a class="m-search" href="#search">SEARCH</a>
+</aside>
 
 
 
@@ -176,30 +201,51 @@ function removeItem(id){
 // Kickoff
 document.addEventListener("DOMContentLoaded", render);
 </script>
-<footer class="footer-split">
-    <div class="container footer-grid">
-      <div class="f-col">
-        <h4 class="f-head">CONNECT</h4>
+<footer class="footer-split" role="contentinfo">
+  <div class="container footer-grid">
+
+    <div class="f-col">
+      <h4 class="f-head">CONNECT</h4>
+      <nav aria-label="Connect">
         <ul class="f-list">
-          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
         </ul>
-      </div>
-      <div class="f-col">
-        <h4 class="f-head">INFO</h4>
+      </nav>
+    </div>
+
+    <div class="f-col">
+      <h4 class="f-head">INFO</h4>
+      <nav aria-label="Info">
         <ul class="f-list">
           <li><a href="mission.html">MISSION</a></li>
           <li><a href="authors.html">OUR STORY</a></li>
         </ul>
-      </div>
-      <div class="f-col f-col--shop">
-        <h4 class="f-head">SHOP</h4>
-        <div class="shop-wrap"><ul class="f-list">
-          <li><a href="shop.html">BOOKS</a></li>
-        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
-      </div>
+      </nav>
     </div>
-    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
-  </footer>
+
+    <div class="f-col f-col--shop">
+  <div class="shop-wrap">
+    <div class="list-wrap">
+      <h3 class="f-head">Shop</h3>
+      <ul class="f-list">
+        <li><a href="books.html">Books</a></li>
+        </ul>
+    </div>
+    <a href="index.html" class="footer-logo">
+      <img src="assets\img\aqeelah-footer-logo.png" alt="Aqeelab Books Logo">
+    </a>
+  </div>
+</div>
+
+  </div>
+
+  <div class="footer-bar">
+    <div class="container bar-inner">
+      COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span>
+    </div>
+  </div>
+</footer>
+
 <style>
   /* Footer SHOP column: keep list vertical under heading; push logo to the right */
   .f-col--shop .shop-wrap {
