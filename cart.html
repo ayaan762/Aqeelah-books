@@ -247,32 +247,7 @@ document.addEventListener("DOMContentLoaded", render);
 </footer>
 
 <style>
-  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
-  .f-col--shop .shop-wrap {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between; /* pushes logo to the right edge of the column */
-    gap: 24px;
-    width: 100%;
-  }
-  .f-col--shop .f-list { margin: 0; }
-  .f-col--shop .footer-logo img {
-    width: 150px;  /* slightly larger and more to the right */
-    height: auto;
-    display: block;
-    opacity: 0.95;
-  }
 
-.f-col--shop .footer-logo{
-  position: absolute;
-  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
-  top: 40px;    /* smaller = higher; larger = lower */
-  transform: none !important; /* cancels previous nudges */
-}
-  @media (max-width: 640px) {
-    .f-col--shop .shop-wrap { gap: 16px; }
-    .f-col--shop .footer-logo img { width: 72px; }
-  }
 /* Hover underline for main nav */
 .subnav-main a{
   position: relative;

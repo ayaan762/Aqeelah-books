@@ -1412,3 +1412,13 @@ img{ max-width: 100%; height: auto; }
     height: auto;
   }
 }
+/* Contact page: hide the small badge above the heading on phones */
+@media (max-width: 900px){
+  body.contact-like .contact-intro .badge { 
+    display: none !important; 
+  }
+  /* tighten spacing now that the badge is gone (optional) */
+  body.contact-like .contact-intro h1 { 
+    margin-top: 0 !important; 
+  }
+}
