@@ -1381,3 +1381,6 @@ img{ max-width: 100%; height: auto; }
     bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg);
   }
 }
+/* Ensure mobile drawer overlays the sticky header */
+.m-overlay { z-index: 1100 !important; }
+.m-drawer  { z-index: 1101 !important; }
