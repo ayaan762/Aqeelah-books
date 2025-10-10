@@ -1384,3 +1384,31 @@ img{ max-width: 100%; height: auto; }
 /* Ensure mobile drawer overlays the sticky header */
 .m-overlay { z-index: 1100 !important; }
 .m-drawer  { z-index: 1101 !important; }
+/* === Mobile footer: stack columns + center like the reference === */
+@media (max-width: 900px){
+  /* one column instead of 2 */
+  .footer-split .footer-grid{
+    grid-template-columns: 1fr !important;
+    row-gap: 28px;
+    text-align: center;
+  }
+
+  /* tidy each column */
+  .footer-split .f-col{ display: grid; justify-items: center; }
+  .footer-split .f-head{ margin-bottom: 10px; letter-spacing: .22em; }
+
+  /* links as a neat vertical list */
+  .footer-split .f-list{ display: grid; gap: 10px; }
+  .footer-split .f-list a{ display: inline-block; }
+
+  /* Shop column: put logo and list on separate rows and center both */
+  .footer-split .f-col--shop .shop-wrap{
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+  }
+  .footer-split .f-col--shop .footer-logo img{
+    max-width: 160px;
+    height: auto;
+  }
+}
