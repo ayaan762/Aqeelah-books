@@ -317,20 +317,30 @@ document.addEventListener('click', (e) => {
 .footer-split img{ max-width: 100%; height: auto; border-radius: 0; }
 
 /* SHOP column: keep logo within the flow */
-.f-col--shop .shop-wrap{
+/* SHOP column: FIX Desktop Layout (side-by-side logo, left-aligned text) */
+.f-col--shop .shop-wrap {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  flex-direction: row;       /* FIX: Arrange content and logo horizontally */
+  align-items: flex-start;   /* FIX: Align content to the top (not center) */
+  gap: 20px;
 }
-.f-col--shop .footer-logo{
-  position: static !important;  /* cancel any previous absolute positioning */
-  margin: 6px auto 0;
+.f-col--shop .shop-text-content {
+    order: 1; /* Keep content on the left */
+}
+.f-col--shop .footer-logo {
+  position: static !important;
+  order: 2; /* Place logo on the right */
+  margin: 0; /* Remove centering margin */
 }
 .f-col--shop .footer-logo img{
   width: 120px;
   height: auto;
   opacity: .95;
+}
+/* Ensure text in all footer lists is left-aligned on desktop */
+.footer-split .f-head,
+.footer-split .f-list {
+    text-align: left;
 }
 
 /* Tablet */

@@ -1456,3 +1456,45 @@ img{ max-width: 100%; height: auto; }
     justify-items: center;       /* center the list block itself */
   }
 }
+
+/* === PC Footer Alignment Fix (override only) === */
+@media (min-width: 901px){
+  /* 3 even columns, top-aligned, left text */
+  .footer-split .footer-grid{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 40px !important;
+    align-items: start !important;
+  }
+  .footer-split .f-head,
+  .footer-split .f-list{
+    text-align: left !important;
+  }
+
+  /* SHOP column: list on left, logo on right, aligned to top */
+  .f-col--shop .shop-wrap{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+  }
+  .f-col--shop .list-wrap{
+    flex: 1 1 auto !important;
+  }
+  .f-col--shop .footer-logo{
+    position: static !important;
+    margin: 0 !important;
+    transform: none !important;
+    align-self: flex-start !important;
+    display: block !important;
+  }
+  .f-col--shop .footer-logo img{
+    width: 140px !important;
+    height: auto !important;
+  }
+
+  /* Tighter list spacing so headings + items visually line up */
+  .footer-split .f-list li{
+    margin: 10px 0 !important;
+  }
+}
