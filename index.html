@@ -26,8 +26,10 @@
 <header class="site-header">
 <!-- TOP BAR -->
 <div class="container nav nav-top">
+<button id="menu-toggle" class="menu" aria-label="Open menu"
+        aria-controls="mobile-drawer" aria-expanded="false">MENU</button>
+
 <a class="top-link" href="#search">SEARCH</a>
-<!-- keep your existing logo + title -->
 <div class="brand-wrap">
 <a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
 <a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
@@ -45,6 +47,26 @@
 <a href="contact.html">CONTACT</a>
 </nav>
 </header>
+
+<!-- Mobile menu drawer -->
+<div class="m-overlay" aria-hidden="true"></div>
+<aside id="mobile-drawer" class="m-drawer" aria-hidden="true">
+  <div class="m-head">
+    <a class="m-brand" href="index.html">AQEELAH BOOKS</a>
+    <button class="m-close" aria-label="Close menu">×</button>
+  </div>
+
+  <nav class="m-nav" aria-label="Mobile">
+    <a href="authors.html">OUR STORY</a>
+    <a href="mission.html">MISSION</a>
+    <a href="shop.html">SHOP</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="#login" hidden>LOGIN</a>
+  </nav>
+
+  <a class="m-search" href="#search">SEARCH</a>
+</aside>
+
 
 
 

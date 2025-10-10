@@ -186,3 +186,31 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch { /* ignore malformed URLs */ }
   });
 });
+
+// === Mobile drawer menu ===
+(function(){
+  const btn   = document.getElementById('menu-toggle');
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.querySelector('.m-overlay');
+  const close  = drawer?.querySelector('.m-close');
+
+  if(!btn || !drawer || !overlay || !close) return;
+
+  function openMenu(){
+    drawer.classList.add('show'); overlay.classList.add('show');
+    drawer.removeAttribute('aria-hidden');
+    btn.setAttribute('aria-expanded','true');
+    document.documentElement.classList.add('no-scroll');
+  }
+  function closeMenu(){
+    drawer.classList.remove('show'); overlay.classList.remove('show');
+    drawer.setAttribute('aria-hidden','true');
+    btn.setAttribute('aria-expanded','false');
+    document.documentElement.classList.remove('no-scroll');
+  }
+
+  btn.addEventListener('click', openMenu);
+  close.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+})();
