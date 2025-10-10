@@ -1213,19 +1213,3 @@ img{ max-width: 100%; height: auto; }
     background-size: 44px 44px;
   }
 }
-/* Kill side tiles on phones so they can't overlap content */
-@media (max-width: 680px){
-  .howdy-page::before,
-  .howdy-page::after{
-    content: none !important;   /* removes the pseudo-elements entirely */
-  }
-  html, body { overflow-x: hidden; }  /* just in case any prior width caused scrolling */
-}
-
-/* Keep them on tablets, but add gutters so text never sits underneath */
-@media (min-width: 681px) and (max-width: 940px){
-  .howdy-page{
-    padding-left: 96px;   /* match the tile width */
-    padding-right: 96px;
-  }
-}
