@@ -1309,12 +1309,16 @@ img{ max-width: 100%; height: auto; }
   .menu{ display:inline-block; }
   .subnav.subnav-main{ display:none; }
 }
-@media (max-width: 900px){
-  /* Hide the drawer's SEARCH link */
-  .m-search { display: none !important; }
+/* Hide search on phones/tablets */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  /* Drawer search link */
+  .m-drawer .m-search { display: none !important; }
 
-  /* If you also have a header search icon/button/link, hide it too */
-  .search, .search-btn, .header-search, .nav-top .search-link { 
-    display: none !important; 
+  /* Any header search controls you might have */
+  header .search,
+  header .search-btn,
+  header .header-search,
+  header .nav-top .search-link {
+    display: none !important;
   }
 }
