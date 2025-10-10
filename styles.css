@@ -1195,4 +1195,48 @@ img{ max-width: 100%; height: auto; }
   .insta-heading{ display:none !important; }
 }
 
+/* Tablet: keep slim decor + add safe gutters */
+@media (max-width: 900px){
+  .howdy-page{ padding-left: 64px; padding-right: 64px; }
+  .howdy-page::before,
+  .howdy-page::after{
+    width: 64px;
+    background-size: 64px 64px;
+  }
+}
+/* Very small phones */
+@media (max-width: 480px){
+  .howdy-page{ padding-left: 44px; padding-right: 44px; }
+  .howdy-page::before,
+  .howdy-page::after{
+    width: 44px;
+    background-size: 44px 44px;
+  }
+}
+/* Kill side tiles on phones so they can't overlap content */
+@media (max-width: 680px){
+  .howdy-page::before,
+  .howdy-page::after{
+    content: none !important;   /* removes the pseudo-elements entirely */
+  }
+  html, body { overflow-x: hidden; }  /* just in case any prior width caused scrolling */
+}
 
+/* Keep them on tablets, but add gutters so text never sits underneath */
+@media (min-width: 681px) and (max-width: 940px){
+  .howdy-page{
+    padding-left: 96px;   /* match the tile width */
+    padding-right: 96px;
+  }
+}
+/* Phones: remove the side design completely */
+@media (max-width: 680px){
+  .howdy-page::before,
+  .howdy-page::after{
+    content: none !important;   /* kills the pseudo-elements */
+    display: none !important;
+  }
+
+  /* safety: prevent stray horizontal scroll from earlier widths */
+  html, body { overflow-x: hidden; }
+}
