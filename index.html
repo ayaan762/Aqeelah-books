@@ -166,30 +166,50 @@ We are honored to embark on this journey by telling the story of the son of Ali 
 <a class="insta-handle" href="https://instagram.com/aqeelahpublishing" rel="noopener" target="_blank">@aqeelahpublishing</a>
 </div>
 </section>
-<footer class="footer-split">
-    <div class="container footer-grid">
-      <div class="f-col">
-        <h4 class="f-head">CONNECT</h4>
+<footer class="footer-split" role="contentinfo">
+  <div class="container footer-grid">
+
+    <div class="f-col">
+      <h4 class="f-head">CONNECT</h4>
+      <nav aria-label="Connect">
         <ul class="f-list">
-          <li><a target="_blank" rel="noopener" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/aqeelahpublishing/">INSTAGRAM</a></li>
         </ul>
-      </div>
-      <div class="f-col">
-        <h4 class="f-head">INFO</h4>
+      </nav>
+    </div>
+
+    <div class="f-col">
+      <h4 class="f-head">INFO</h4>
+      <nav aria-label="Info">
         <ul class="f-list">
           <li><a href="mission.html">MISSION</a></li>
           <li><a href="authors.html">OUR STORY</a></li>
         </ul>
-      </div>
-      <div class="f-col f-col--shop">
-        <h4 class="f-head">SHOP</h4>
-        <div class="shop-wrap"><ul class="f-list">
-          <li><a href="shop.html">BOOKS</a></li>
-        </ul><div class="footer-logo"><img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy"></div></div>
+      </nav>
+    </div>
+
+    <div class="f-col f-col--shop">
+      <h4 class="f-head">SHOP</h4>
+      <div class="shop-wrap">
+        <nav aria-label="Shop">
+          <ul class="f-list">
+            <li><a href="shop.html">BOOKS</a></li>
+          </ul>
+        </nav>
+        <div class="footer-logo">
+          <img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy">
+        </div>
       </div>
     </div>
-    <div class="footer-bar"><div class="container bar-inner">COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span></div></div>
-  </footer>
+
+  </div>
+
+  <div class="footer-bar">
+    <div class="container bar-inner">
+      COPYRIGHT <span class="brand">AQEELAH BOOKS</span> <span id="year"></span>
+    </div>
+  </div>
+</footer>
 <script src="script.js"></script>
 <script>
   // Minimal, no-dependency interactivity limited to NEW & NOTEWORTHY
@@ -262,12 +282,6 @@ document.addEventListener('click', (e) => {
     opacity: 0.95;
   }
 
-.f-col--shop .footer-logo{
-  position: absolute;
-  right: 150px;  /* smaller number = closer to the edge; larger = more inward */
-  top: 40px;    /* smaller = higher; larger = lower */
-  transform: none !important; /* cancels previous nudges */
-}
   @media (max-width: 640px) {
     .f-col--shop .shop-wrap { gap: 16px; }
     .f-col--shop .footer-logo img { width: 72px; }

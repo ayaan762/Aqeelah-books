@@ -1213,3 +1213,50 @@ img{ max-width: 100%; height: auto; }
     background-size: 44px 44px;
   }
 }
+/* Footer: mobile/tablet layout like the reference */
+.footer-split .footer-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto; /* desktop default */
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px){
+  .footer-split .footer-grid{
+    grid-template-columns: 1fr 1fr;      /* two columns on tablets */
+    text-align: center;
+  }
+  .footer-split .f-badge{ grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px){
+  .footer-split .footer-grid{
+    grid-template-columns: 1fr;          /* single column on phones */
+    text-align: center;
+    gap: 18px;
+  }
+
+  /* stack the SHOP list and logo vertically, centered */
+  .f-col--shop .shop-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .f-col--shop .footer-logo{
+    position: static !important;         /* cancel any absolute rules */
+    right: auto; top: auto;
+    margin: 6px auto 0;
+  }
+
+  .f-col .f-head{ margin-bottom: 6px; }
+  .f-list li{ margin: 8px 0; }
+}
+
+/* optional: add the trailing “.” style like the reference */
+.f-head{ text-transform: uppercase; letter-spacing: .18em; }
+.f-head::after{ content: "."; }
+@media (max-width: 680px){
+  .f-col--shop .footer-logo{ display: none; }
+}
