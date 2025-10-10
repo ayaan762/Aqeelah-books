@@ -1498,3 +1498,178 @@ img{ max-width: 100%; height: auto; }
     margin: 10px 0 !important;
   }
 }
+
+/* === IG-style definition card under "THE WOMAN BEHIND THE NAME" === */
+.aq-card{
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  text-align: center;
+  max-width: 32ch;
+  margin: 12px auto 0;
+  color: var(--ink);
+}
+.ld-left h2{ text-align:center; }
+
+.aq-term{ margin: 0 0 4px; }
+.aq-term .pos{
+  font-weight: 400;
+  opacity: 0.8;
+  margin-left: 6px;
+}
+.aq-pron{
+  margin: 0 0 14px;
+  opacity: 0.85;
+}
+
+.aq-section{
+  font-weight: 600;
+  text-transform: none;
+  margin: 12px 0 6px;
+}
+
+.aq-list{
+  list-style: decimal;
+  padding: 0;
+  margin: 10px auto 14px;
+  display: inline-block;          /* keeps numbers aligned while text stays centered */
+  text-align: left;               /* classic dictionary feel for the lines themselves */
+  max-width: 32ch;
+}
+.aq-list li{ margin: 6px 0; }
+
+.aq-note{ margin: 12px 0 8px; }
+.aq-src{
+  margin: 0;
+  opacity: 0.75;
+  font-style: italic;
+}
+
+/* smaller on phones, same look */
+@media (max-width: 600px){
+  .aq-card{ font-size: 14px; max-width: 30ch; }
+}
+/* === Wider IG-style card + normal paragraph body === */
+
+/* Widen the dictionary-style block */
+.aq-card{
+  max-width: 44ch;                 /* was 32ch */
+  font-size: 16px;                 /* a touch larger */
+  line-height: 1.85;
+  margin: 12px auto 0;
+  text-align: center;
+}
+.aq-list{ max-width: 44ch; }
+
+/* Make it a bit wider on larger screens to match the screenshot */
+@media (min-width: 900px){
+  .aq-card{ max-width: 48ch; font-size: 17px; line-height: 1.9; }
+  .aq-list{ max-width: 48ch; }
+}
+
+/* Regular paragraph look for the lower part */
+.aq-note,
+.aq-src{
+  font-family: ui-serif, Georgia, "Times New Roman", serif; /* back to your site’s serif */
+  font-size: clamp(16px, 1.6vw, 18px);
+  line-height: 1.85;
+  letter-spacing: normal;
+  text-align: center;              /* center under the heading; switch to left if you prefer */
+  max-width: 62ch;                 /* comfortable reading width for a normal paragraph */
+  margin: 18px auto 0;
+  color: var(--ink);
+}
+.aq-src{ opacity: 0.8; margin-top: 8px; }
+/* Center the two numbered points like the IG slide */
+.aq-card{
+  max-width: 46ch;              /* narrow “card” */
+  margin: 0 auto;               /* centers the whole block */
+  text-align: center;           /* headings/etymology centered */
+}
+.aq-list{
+  max-width: 46ch;              /* same width as card */
+  margin: 10px auto 16px;       /* centers the list block */
+  list-style: decimal;
+  text-align: left;             /* BUT keep lines themselves left, classic dictionary feel */
+  padding-left: 1.4em;          /* room for numbers */
+  line-height: 1.9;
+}
+
+/* Make the paragraph under it a regular left-aligned paragraph on desktop */
+@media (min-width: 900px){
+  .aq-note,
+  .aq-src{
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    max-width: 62ch;            /* comfortable reading width */
+    margin: 22px 0 0;           /* use the column’s left edge, not centered */
+    text-align: left;
+    line-height: 1.85;
+    letter-spacing: normal;
+  }
+  .aq-src{ opacity: .8; margin-top: 8px; font-style: italic; }
+}
+
+/* On phones, keep the lower paragraph centered for balance */
+@media (max-width: 899px){
+  .aq-note,
+  .aq-src{
+    max-width: 62ch;
+    margin: 18px auto 0;
+    text-align: center;
+  }
+}
+
+/* === Muted tone for the definition block and the paragraphs === */
+.aq-card,
+.aq-card p,
+.aq-card .aq-list li,
+.aq-note,
+.aq-src{
+  color: var(--ink) !important;      /* uses your palette: #6c5f57 */
+  opacity: 0.90;                       /* slight softening */
+}
+
+/* Keep key bits a touch clearer if you want */
+.aq-term strong,
+.aq-section{
+  color: var(--ink) !important;        /* headings/term slightly darker for hierarchy */
+  opacity: 0.95;
+}
+
+/* Links inside stay muted too, but with underline for accessibility */
+.aq-card a,
+.aq-note a,
+.aq-src a{
+  color: var(--ink) !important;
+  text-decoration: underline;
+}
+/* === Make the ABOUT text match the hero style === */
+
+/* Lower paragraph + source: same vibe as hero paragraph */
+.aq-note,
+.aq-src{
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; /* same family */
+  font-size: 1rem;        /* same default size */
+  line-height: 1.6;       /* comfortable body copy */
+  letter-spacing: normal; /* avoid headline spacing */
+  font-weight: 400;       /* normal body weight */
+  text-transform: none;
+
+ 
+}
+.aq-src{ opacity: 0.9; font-style: italic; margin-top: 8px; }
+
+/* If you want the definition/list to match the hero too (not typewriter look),
+   uncomment these and they'll take the same body style as well. */
+
+.aq-card,
+.aq-card p,
+.aq-card .aq-list li{
+  font-family: ui-serif, Georgia, "Times New Roman", serif;
+  color: var(--ink) !important;
+  font-weight: 100;
+  font-size: 15px;
+  text-align: center;
+}
+
