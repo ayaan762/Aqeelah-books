@@ -189,18 +189,18 @@ We are honored to embark on this journey by telling the story of the son of Ali 
     </div>
 
     <div class="f-col f-col--shop">
-      <h4 class="f-head">SHOP</h4>
-      <div class="shop-wrap">
-        <nav aria-label="Shop">
-          <ul class="f-list">
-            <li><a href="shop.html">BOOKS</a></li>
-          </ul>
-        </nav>
-        <div class="footer-logo">
-          <img src="assets/img/aqeelah-footer-logo.png" alt="AQEELAH BOOKS logo" loading="lazy">
-        </div>
-      </div>
+  <div class="shop-wrap">
+    <div class="list-wrap">
+      <h3 class="f-head">Shop</h3>
+      <ul class="f-list">
+        <li><a href="books.html">Books</a></li>
+        </ul>
     </div>
+    <a href="index.html" class="footer-logo">
+      <img src="assets\img\aqeelah-footer-logo.png" alt="Aqeelab Books Logo">
+    </a>
+  </div>
+</div>
 
   </div>
 
@@ -263,54 +263,60 @@ document.addEventListener('click', (e) => {
 
 <style>
 
-.muted{
-  white-space: pre-line;   /* keep \n as line breaks, wrap long lines */
-}
-  /* Footer SHOP column: keep list vertical under heading; push logo to the right */
-  .f-col--shop .shop-wrap {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between; /* pushes logo to the right edge of the column */
-    gap: 24px;
-    width: 100%;
-  }
-  .f-col--shop .f-list { margin: 0; }
-  .f-col--shop .footer-logo img {
-    width: 150px;  /* slightly larger and more to the right */
-    height: auto;
-    display: block;
-    opacity: 0.95;
-  }
-
-  @media (max-width: 640px) {
-    .f-col--shop .shop-wrap { gap: 16px; }
-    .f-col--shop .footer-logo img { width: 72px; }
-  }
-/* Hover underline for main nav */
-.subnav-main a{
-  position: relative;
-  text-decoration: none;
-}
-.subnav-main a::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -6px;      /* distance below the text */
-  height: 2px;       /* line thickness */
-  width: 0;
-  margin: 0 auto;    /* centers the line */
-  background: #7A552E;
-  transition: width .25s ease;
-}
-.subnav-main a:hover::after,
-.subnav-main a:focus-visible::after{
-  width: 100%;
+/* ===== Footer (split) – safe, scoped rules ===== */
+.footer-split .footer-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
 }
 
+.footer-split .f-head{
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin: 0 0 6px;
+}
+.footer-split .f-head::after{ content: "."; } /* only in footer */
 
+.footer-split img{ max-width: 100%; height: auto; border-radius: 0; }
+
+/* SHOP column: keep logo within the flow */
+.f-col--shop .shop-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.f-col--shop .footer-logo{
+  position: static !important;  /* cancel any previous absolute positioning */
+  margin: 6px auto 0;
+}
+.f-col--shop .footer-logo img{
+  width: 120px;
+  height: auto;
+  opacity: .95;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .footer-split .footer-grid{
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+}
+
+/* Phone */
+@media (max-width: 680px){
+  .footer-split .footer-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+  .footer-split .f-list{ margin: 0; padding: 0; list-style: none; }
+  .footer-split .f-list li{ margin: 8px 0; }
+  .f-col--shop .footer-logo img{ width: 84px; }
+}
 </style>
-
 
 </body>
 </html>

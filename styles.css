@@ -68,13 +68,7 @@ img{max-width:100%;display:block;border-radius:10px}
 .inline-form input{padding:12px 14px;border:1px solid var(--ink);border-radius:999px;width:min(420px,80%);background:#fff}
 
 /* FOOTER */
-.site-footer{background:var(--sage);border-top:2px solid var(--ink);margin-top:30px}
-.site-footer .container{max-width:100% !important;width:100%;padding-left:20px;padding-right:20px}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:20px 0;align-items:start}
-.footer-grid > div:first-child{justify-self:start;text-align:left}
-.footer-grid nav{justify-self:center;display:flex;gap:40px}
-.footer-grid nav a{text-decoration:none;font-weight:500}
-.footer-grid .payments{justify-self:end;text-align:right}
+
 .logo.small{font-weight:800}
 .marigold{height:16px;background:var(--terra)}
 
@@ -103,56 +97,6 @@ img{max-width:100%;display:block;border-radius:10px}
   .hero{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr 1fr}
   .stripe-inner{grid-template-columns:1fr}
-}
-@media (max-width: 640px){
-  /* header title flows normally to avoid overlap */
-  .brand-wrap{display:flex;align-items:center;gap:8px;justify-content:center;flex:1}
-  .site-title{position:static;transform:none;font-size:1.25rem;line-height:1.2;white-space:normal;text-align:center}
-  .nav{gap:8px}
-
-  /* product cards single column + smaller image */
-  .grid{grid-template-columns:1fr}
-  .card-img{height:200px}
-
-  /* footer stacks cleanly */
-  .footer-grid{grid-template-columns:1fr;gap:14px;text-align:center}
-  .footer-grid > div:first-child{justify-self:center}
-  .footer-grid nav{justify-self:center;flex-direction:column;gap:10px}
-  .footer-grid .payments{justify-self:center;text-align:center}
-
-  /* poster padding */
-  .poster-wrap{padding:22px 0}
-  .poster{padding:16px 14px}
-}
-/* --- Footer mobile/tablet fixes --- */
-@media (max-width: 768px){
-  .footer-grid{
-    grid-template-columns: 1fr;  /* stack */
-    gap: 16px;
-    text-align: center;
-  }
-  .footer-grid > div:first-child{
-    justify-self: center;
-    text-align: center;
-  }
-  .footer-grid nav{
-    justify-self: center;
-    display: flex;
-    flex-direction: column;      /* vertical list */
-    gap: 10px;
-  }
-  .footer-grid .payments{
-    justify-self: center;
-    text-align: center;
-    white-space: normal;         /* allow wrapping */
-    overflow-wrap: anywhere;     /* break long strings if needed */
-    word-break: break-word;
-    max-width: 90vw;             /* prevent overspill */
-  }
-  .site-footer .container{
-    padding-left: 16px;
-    padding-right: 16px;
-  }
 }
 
 /* safety: prevent any accidental horizontal scroll */
@@ -284,7 +228,7 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 
 /* === Footer Split (Connect / Info / Shop + Badge) === */
 .footer-split{ background:var(--bg); border-top:1px solid var(--line) }
-.footer-grid{ display:grid; grid-template-columns: 1fr 1fr 1fr auto; align-items:start; gap:40px; padding:48px 0 }
+.footer-split .footer-grid{ display:grid; grid-template-columns: repeat(3, 1fr); align-items:start; gap:40px; padding:48px 0 }
 .f-head{ margin:0 0 16px; font-family:"Bodoni Moda", serif; letter-spacing:.18em; text-transform:uppercase; color:#7A552E }
 .f-list{ list-style:none; margin:0; padding:0; }
 .f-list li{ margin:16px 0 }
@@ -301,8 +245,8 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 .bar-inner a:hover{ color:#7A552E }
 
 @media (max-width: 900px){
-  .footer-grid{ grid-template-columns:1fr 1fr; }
-  .f-badge{ grid-column:1 / -1; }
+  .footer-split .footer-grid{ grid-template-columns:1fr 1fr; }
+.footer-split .f-badge{ grid-column:1 / -1; }  /* spans full width on tablets */
 }
 
 /* === Instagram Band (above footer) === */
@@ -785,7 +729,6 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
   text-transform: uppercase;
   color: var(--howdy-green);
   font-size: clamp(50px,50px, 50px);
-  font size: 10px;
   line-height:1.02;
   margin: .2rem 0 .6rem;
 }
@@ -1216,7 +1159,7 @@ img{ max-width: 100%; height: auto; }
 /* Footer: mobile/tablet layout like the reference */
 .footer-split .footer-grid{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto; /* desktop default */
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   align-items: start;
 }
@@ -1259,4 +1202,70 @@ img{ max-width: 100%; height: auto; }
 .f-head::after{ content: "."; }
 @media (max-width: 680px){
   .f-col--shop .footer-logo{ display: none; }
+}
+/* keep the SHOP column neat + stacked */
+.f-col--shop .shop-wrap{
+  display: flex;
+  flex-direction: row;
+  align-items: center;   /* use flex-start if you prefer left aligned */
+  gap: 12px;
+}
+
+.f-col--shop .footer-logo{
+  position: static !important;  /* cancels old absolute positioning */
+  margin: 6px auto 0;           /* centers under BOOKS */
+}
+
+/* SHOP column: keep logo within the flow, aligned to the left */
+.f-col--shop .shop-wrap {
+  display: flex; /* Logo and List/Heading wrapper are now side-by-side */
+  flex-direction: row;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 20px; /* Add some space between the logo and the content */
+}
+
+.f-col--shop .footer-logo {
+  position: static !important;
+  margin: 0; /* Reset margin */
+  order: 2; /* Put the logo on the right side of the list/heading */
+}
+.f-col--shop .footer-logo img {
+  width: 100px; /* Adjust size if needed for better fit */
+}
+
+/* Ensure the list wrapper is aligned to the top and first */
+.f-col--shop .list-wrap {
+  order: 1; /* Put the list/heading on the left side */
+  /* Remove any conflicting align-items rules */
+}
+
+/* For the links to line up under the heading */
+.footer-split .f-head {
+  text-align: left; /* Ensure the heading is left-aligned */
+  margin: 0 0 6px;
+}
+.f-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: left; /* Ensure the list is left-aligned */
+}
+/* Footer: keep logo beside the Books list on desktop */
+.footer-split .f-col--shop .shop-wrap{
+  display: flex;
+  flex-direction: row;      /* was column */
+  align-items: flex-start;
+  gap: 16px;
+}
+.footer-split .f-col--shop .list-wrap{ flex: 1; }
+.footer-split .f-col--shop .footer-logo img{
+  width: 120px; height: auto;
+}
+
+/* On phones, stack them again */
+@media (max-width: 680px){
+  .footer-split .f-col--shop .shop-wrap{
+    flex-direction: column;
+    align-items: center;
+  }
 }
