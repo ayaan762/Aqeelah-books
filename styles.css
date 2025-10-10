@@ -1334,3 +1334,50 @@ img{ max-width: 100%; height: auto; }
     display: none !important; 
   }
 }
+/* Main nav hover underline (site-wide) */
+.subnav-main a{
+  position: relative;
+  text-decoration: none;
+}
+.subnav-main a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;      /* distance below the text */
+  height: 2px;       /* line thickness */
+  width: 0;
+  margin: 0 auto;    /* centers the line */
+  background: #7A552E;
+  transition: width .25s ease;
+}
+.subnav-main a:hover::after,
+.subnav-main a:focus-visible::after{
+  width: 100%;
+}
+/* Two-line hamburger icon (mobile only) */
+@media (max-width: 900px){
+  .menu.menu-icon{
+    width: 36px; height: 28px; padding: 0; border: none; background: transparent;
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .menu.menu-icon span,
+  .menu.menu-icon::before,
+  .menu.menu-icon::after{
+    content: ""; position: absolute; left: 6px; right: 6px; height: 2px; background: #7A552E;
+    transition: transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+  }
+  /* two parallel lines (top/bottom) */
+  .menu.menu-icon::before{ top: 8px; }
+  .menu.menu-icon::after{  bottom: 8px; }
+  /* center line is hidden; we keep the span for animation symmetry */
+  .menu.menu-icon span{ opacity: 0; }
+
+  /* When menu is open (aria-expanded=true), turn into an X */
+  .menu.menu-icon[aria-expanded="true"]::before{
+    top: 50%; transform: translateY(-50%) rotate(45deg);
+  }
+  .menu.menu-icon[aria-expanded="true"]::after{
+    bottom: auto; top: 50%; transform: translateY(-50%) rotate(-45deg);
+  }
+}
