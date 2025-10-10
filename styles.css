@@ -729,6 +729,7 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
   text-transform: uppercase;
   color: var(--howdy-green);
   font-size: clamp(50px,50px, 50px);
+  font-size: 35px;
   line-height:1.02;
   margin: .2rem 0 .6rem;
 }
