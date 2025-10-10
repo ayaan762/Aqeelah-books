@@ -1229,14 +1229,3 @@ img{ max-width: 100%; height: auto; }
     padding-right: 96px;
   }
 }
-/* Phones: remove the side design completely */
-@media (max-width: 680px){
-  .howdy-page::before,
-  .howdy-page::after{
-    content: none !important;   /* kills the pseudo-elements */
-    display: none !important;
-  }
-
-  /* safety: prevent stray horizontal scroll from earlier widths */
-  html, body { overflow-x: hidden; }
-}
