@@ -1148,6 +1148,51 @@ html body .shop-hero-banner__title{
 
 /* === 4) General image safety: prevent overflow into text === */
 img{ max-width: 100%; height: auto; }
+/* === MOBILE FOOTER / INSTA FIXES === */
+@media (max-width: 768px){
+
+  /* Stack the Insta band instead of tight columns */
+  .insta-wrap{
+    grid-template-columns: 1fr !important;
+    row-gap: 16px !important;
+    align-items: start !important;
+  }
+
+  /* Make the "FOLLOW US FOR UPDATES" readable and left-aligned */
+  .insta-heading{
+    text-align: left !important;
+    font-size: 1.25rem !important;   /* smaller on phones */
+    letter-spacing: .12em !important; /* less spread so it doesn't break every letter */
+    line-height: 1.2 !important;
+    max-width: none !important;
+  }
+
+  /* Two-wide Insta grid on mobile (was 4) */
+  .insta-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  /* Put the handle under the grid and align left */
+  .insta-handle{
+    justify-self: start !important;
+  }
+
+  /* Footer columns: 2-up on phones with comfy spacing */
+  .footer-grid{
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+  /* Badge logo centered below the lists */
+  .f-badge{
+    grid-column: 1 / -1 !important;
+    justify-content: center !important;
+  }
+}
+
+/* (Optional) if screens are super narrow, just hide the long heading */
+@media (max-width: 360px){
+  .insta-heading{ display:none !important; }
+}
 
 
-/* --- Make “THE WOMAN BEHIND THE NAME” fill more space --- */
