@@ -1322,3 +1322,15 @@ img{ max-width: 100%; height: auto; }
     display: none !important;
   }
 }
+/* Hide all search entry points on phones/tablets */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+  /* Header search text link */
+  .nav.nav-top .search-link { 
+    display: none !important; 
+  }
+
+  /* Drawer search item */
+  .m-drawer .m-search { 
+    display: none !important; 
+  }
+}
