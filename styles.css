@@ -16,7 +16,7 @@ img{max-width:100%;display:block;border-radius:10px}
 .logo-img{height:60px;width:auto;display:block}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-.announce{background:var(--butter);padding:10px 0;text-align:center;font-size:.9rem;border-bottom:1px solid var(--line)}
+.announce{background:var(--sage);padding:10px 0;text-align:center;font-size:.9rem;border-bottom:1px solid var(--line)}
 .site-header{background:var(--cream);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .logo{font-weight:800;letter-spacing:.08em}
@@ -430,14 +430,14 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
   background:linear-gradient(90deg, #D6E4E6 0 60%, #F4E6C8 60% 100%);
   padding: 72px 0;
 }
-.love-details .ld-left{ padding: 0 6vw; }
+.love-details .ld-left{ padding: 0 3vw; }
 .love-details h2{
   font-family:"Bodoni Moda", serif;
-  font-weight:900;
-  font-size: clamp(2.2rem, 1rem + 4.2vw, 4.2rem);
-  line-height:1.06;
+  font-weight:800;
+  font-size: 65px;
+  line-height:1.16;
   color:#7A552E;
-  margin:0 0 24px;
+  margin:0 0 0px;
   letter-spacing:.02em;
   text-transform:uppercase;
 }
@@ -781,10 +781,11 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 .howdy-title{
   font-family:"Bodoni Moda", serif;
   font-weight:900;
-  letter-spacing: .18em;
+  letter-spacing: 1mm;
   text-transform: uppercase;
   color: var(--howdy-green);
-  font-size: clamp(1.8rem, 1rem + 6vw, 5rem);
+  font-size: clamp(50px,50px, 50px);
+  font size: 10px;
   line-height:1.02;
   margin: .2rem 0 .6rem;
 }
@@ -839,7 +840,7 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 
 /* --- Howdy hero tweaks: image on right, larger visual weight --- */
 .howdy-hero .howdy-photo{
-  width: min(115%, 720px);
+  width: min(10%, 72px);
   max-width: none;
   display:block;
   margin-inline: auto;
@@ -854,9 +855,8 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 }
 
 
-/* --- Howdy hero layout refinement (text nudged right, bigger art) --- */
 .howdy-hero .howdy-right{ 
-  padding-left: clamp(32px, 5vw, 96px);
+  padding-left: clamp(32px,  96px);
 }
 .howdy-hero .howdy-photo{
   width: min(130%, 860px);
@@ -874,8 +874,8 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 
 /* --- Revert howdy photo to original/normal size --- */
 .howdy-hero .howdy-photo{
-  width: min(100%, 600px) !important;
-  max-width: 600px !important;
+  width: min(100%, 400px) !important;
+  max-width: 400px !important;
   height: auto !important;
 }
 
@@ -895,8 +895,10 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 
 /* Typography inside (kept simple, independent from other howdy styles) */
 .index-howdy__title{
-  font-size: clamp(40px, 8vw, 112px);
+  font-size: clamp(30px, 8vw, 112px);
   line-height: 0.95;
+  font-size: 50px;
+  font-weight: 200;
   letter-spacing: 0.1em;
   margin: 0 0 15px 0;
   text-transform: uppercase;
@@ -998,9 +1000,6 @@ body, p, a, li, input, button, small{ font-family:"Inter", system-ui, -apple-sys
 
 
 
-/* === GPT PATCH: Title & Heading Typeface + Wider Letter-Spacing === */
-/* Optional: if you have Perandory SemiCondensed font files, place them in /assets/fonts and
-   uncomment this @font-face to actually use them. Otherwise, we fall back to Bodoni. */
 /*
 @font-face{
   font-family:"Perandory SemiCondensed";
@@ -1081,5 +1080,74 @@ html body .shop-hero-banner__title{
     min-height: 44px;
   }
 }
+/* --- Insta band tweaks (remove plaque + left-align heading) --- */
+.insta-plaque{ display:none !important; }
+
+/* With plaque removed, use 3 columns: [heading | grid | handle] */
+.insta-wrap{
+  grid-template-columns: 1fr 1.6fr auto !important;
+}
+
+/* Move the heading to the left */
+.insta-heading{
+  text-align: left !important;
+  justify-self: start !important;
+}
+@media (max-width: 1080px){
+  .insta-heading{ text-align:left !important; }
+}
+/* === 1) HERO / MARQUEE: prevent overlap === */
+@media (max-width: 900px){
+  /* Let the hero breathe and avoid fixed heights */
+  .marquee{
+    min-height: auto !important;
+    padding: 56px 0 36px !important;
+  }
+  /* Hide floating side photos that collide with the headline on small screens */
+  .marquee-decor{ display: none !important; }
+  .marquee-inner{ z-index: 2; position: relative; }
+}
+
+/* Optional: nudge decor farther out on larger screens to reduce crowding */
+@media (min-width: 901px){
+  .marquee-decor img{ width: min(220px, 22vw) !important; }
+  .marquee-decor.lt{ left: 3% !important; top: 10% !important; }
+  .marquee-decor.rt{ right: 4% !important; top: 8% !important; }
+}
+
+/* === 2) “HOWDY / INTRO” band: put text on top, image below on mobile === */
+@media (max-width: 900px){
+  .index-howdy .container{
+    grid-template-columns: 1fr !important;
+    row-gap: 18px !important;
+  }
+  /* text first, image second */
+  .index-howdy__right{ order: 1 !important; }
+  .index-howdy__left{  order: 2 !important; }
+
+  /* make the image scale nicely */
+  .index-howdy img,
+  .howdy-hero .howdy-photo{
+    width: 100% !important;
+    max-width: 480px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* === 3) Header title safety: never overlap nav on small screens === */
+@media (max-width: 900px){
+  .site-title{
+    position: static !important;
+    transform: none !important;
+    white-space: normal !important;
+    text-align: center !important; /* or left if you prefer */
+    pointer-events: auto !important;
+  }
+}
+
+/* === 4) General image safety: prevent overflow into text === */
+img{ max-width: 100%; height: auto; }
+
 
 /* --- Make “THE WOMAN BEHIND THE NAME” fill more space --- */

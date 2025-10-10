@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
 
-  <title>AQEELAH BOOKS</title>
+  <title>Mission-AQEELAH BOOKS</title>
   <meta name="description" content="Artisanal books, stationery, and gifts." />
 
   <!-- Keep your global stylesheet for header/footer, but we won't reuse its classes for the mission section -->
@@ -101,6 +101,7 @@
       color: var(--mv2-accent);
       font-size: clamp(1.8rem, 1rem + 6vw, 4.6rem);
       line-height: 1.02;
+font-size: 50px;
     }
     .mission-v2__lede {
       margin: 0 0 .6rem 0;
@@ -150,7 +151,6 @@
 <!-- TOP BAR -->
 <div class="container nav nav-top">
 <a class="top-link" href="#search">SEARCH</a>
-<!-- keep your existing logo + title -->
 <div class="brand-wrap">
 <a class="logo" href="index.html"><img class="logo-img" src="assets/img/aqeelah-footer-logo.png"/><span class="sr">AQEELAH BOOKS</span></a>
 <a aria-label="Go to homepage" class="site-title" href="index.html">AQEELAH BOOKS</a>
@@ -162,28 +162,26 @@
 </div>
 <!-- THIN-LINED MAIN NAV (only these 4) -->
 <nav class="subnav container subnav-main">
-<a href="shop.html">SHOP</a>
 <a href="authors.html">OUR STORY</a>
-<a href="contact.html">CONTACT</a>
 <a href="mission.html">MISSION</a>
+<a href="shop.html">SHOP</a>
+<a href="contact.html">CONTACT</a>
+
 </nav>
 </header>
 
 
   <main>
-    <!-- NEW MISSION SECTION (image LEFT, text RIGHT) -->
     <section class="mission-v2" aria-labelledby="mission-v2-title">
       <div class="mission-v2__wrap">
         <div class="mission-v2__grid">
           <figure class="mission-v2__figure">
-            <!-- Replace with your mission image -->
             <img src="assets/img/b3.jpg" alt="Aqeelah Books—mission imagery" class="mission-v2__img" loading="lazy">
             <figcaption class="sr">Our mission visual</figcaption>
             <div class="mission-v2__stamp">EST. 2025</div>
           </figure>
 
           <div class="mission-v2__text">
-            <p class="mission-v2__eyebrow">In the Name of the Most High</p>
             <h1 id="mission-v2-title" class="mission-v2__title">Our Mission</h1>
             <p class="mission-v2__lede">Planting seeds of love for Allah and the Ahl al-Bayt—page by page.</p>
 
@@ -217,9 +215,8 @@
       <div class="f-col">
         <h4 class="f-head">INFO</h4>
         <ul class="f-list">
-          <li><a href="shop.html">SERVICES</a></li>
           <li><a href="mission.html">MISSION</a></li>
-          <li><a href="authors.html">AUTHORS</a></li>
+          <li><a href="authors.html">OUR STORY</a></li>
         </ul>
       </div>
       <div class="f-col f-col--shop">
@@ -298,7 +295,7 @@
   /* Mobile: stack naturally (text first, image second) */
   @media (max-width: 940px) {
     .mission-v2__grid { grid-template-columns: 1fr; }
-    .mission-v2__text { order: 1; }
-    .mission-v2__figure { order: 2; }
+    .mission-v2__text { order: 2; }
+    .mission-v2__figure { order: 1; }
   }
 </style>

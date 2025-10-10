@@ -158,3 +158,31 @@ if (btn) {
     }
   });
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const thisHost = location.hostname.replace(/^www\./, '');
+
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+
+    // Skip anchors, phone/email, and JS links
+    if (
+      href.startsWith('#') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('javascript:')
+    ) return;
+
+    try {
+      const url = new URL(href, location.origin);
+      const thatHost = url.hostname.replace(/^www\./, '');
+      const isExternal = thatHost !== thisHost;
+
+      if (isExternal) {
+        a.target = '_blank';
+        // keep any existing rel values; add safe defaults
+        a.rel = (a.rel ? a.rel + ' ' : '') + 'noopener noreferrer external';
+      }
+    } catch { /* ignore malformed URLs */ }
+  });
+});
