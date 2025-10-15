@@ -59,7 +59,7 @@ if (btn) {
   const form = document.querySelector('.invite-form');
   if (!form) return;
 
-  const SUBSCRIBE_ENDPOINT = 'https://formspree.io/f/xnnbkwwv';
+  const SUBSCRIBE_ENDPOINT = 'https://usebasin.com/f/237ae85c9717';
 
   // Simple, stricter email validation (beyond HTML5)
   function isValidEmail(email){
